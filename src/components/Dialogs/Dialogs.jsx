@@ -6,6 +6,7 @@ import User from './User/User'
 
 const Dialogs = (props) => {
    return(<div>
+      <div>Dialogs</div>
       <DialogItem />
       <Message />
       <User />
