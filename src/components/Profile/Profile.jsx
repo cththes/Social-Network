@@ -1,14 +1,13 @@
-import React from 'react'
-import styles from './Profile.module.css'
-import MyPosts from './MyPosts/MyPosts'
+import React from "react";
+import MyPosts from "./MyPosts/MyPosts";
+import styles from "./Profile.module.css";
 
 const Profile = () => {
-   return (
-     <div className={styles.content}>
-       <div>ava+description</div>
-       <MyPosts />
-     </div>
-   );
- };
+  return (
+    <div className={styles.content}>
+      <MyPosts />
+    </div>
+  );
+};
 
-export default Profile
+export default Profile;

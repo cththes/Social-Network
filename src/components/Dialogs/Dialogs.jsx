@@ -1,16 +1,15 @@
 import React from 'react'
 import styles from './Dialogs.module.css'
-import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
 import User from './User/User'
 
-const Dialogs = (props) => {
-   return(<div>
-      <div>Dialogs</div>
-      <DialogItem />
-      <Message />
-      <User />
-   </div>)
+const Dialogs = () => {
+   return(
+      <div className = {styles.item}>
+         <User />
+         <Message />
+      </div>
+   )
 }
 
 export default Dialogs

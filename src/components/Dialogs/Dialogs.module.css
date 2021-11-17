@@ -1,15 +1,9 @@
-.dialogs {
-   color: #777777;
-   display: grid;
-   width: 100%;
-   margin: 0 auto;
-   grid-template-areas: "di ui om";
-   grid-template-columns: 130px 280px 25%;
-   grid-gap: 10px;
- }
- 
- .dialogsItems {
-   grid-area: di;
-   background-color:#2b2a33d7;
-   height:min-content;
- }
+.item {
+  color: #777777;
+  display: grid;
+  width: 100%;
+  margin: 0 auto;
+  grid-template-areas: "ui om";
+  grid-template-columns: 280px 25%;
+  grid-gap: 10px;
+}

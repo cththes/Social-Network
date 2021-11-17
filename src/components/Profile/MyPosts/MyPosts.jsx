@@ -6,13 +6,15 @@ const MyPosts = () => {
   return (
     <div>
       My Posts:
-      <div>
-        <textarea></textarea>
-        <div><button>Add Post</button></div>
+      <div className={styles.post_area}>
+        <textarea placeholder="Введите текст"></textarea>
+        <div>
+          <button>Add Post</button>
+        </div>
       </div>
       <div>
-        <Post message="hello"/>
-        <Post message="it's my 2nd post"/>
+        <Post message="hello" />
+        <Post message="it's my 2nd post" />
       </div>
     </div>
   );
