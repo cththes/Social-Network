@@ -3,9 +3,13 @@ import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 let postsData = [
-  { id: '1', message: "hello" },
-  { id: '2', message: "it's my 2nd post" },
+  { id: "1", message: "hello" },
+  { id: "2", message: "it's my 2nd post" },
 ];
+
+let postsElements = postsData.map((posts) => (
+  <Post id={posts.id} message={posts.message} />
+));
 
 const MyPosts = () => {
   return (
@@ -17,10 +21,7 @@ const MyPosts = () => {
           <button>Add Post</button>
         </div>
       </div>
-      <div>
-        <Post id={postsData[0].id} message={postsData[0].message} />
-        <Post id={postsData[1].id} message={postsData[1].message} />
-      </div>
+      <div>{postsElements}</div>
     </div>
   );
 };
