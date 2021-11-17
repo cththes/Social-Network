@@ -1,0 +1,33 @@
+.item {
+   grid-area: ui;
+   display: grid;
+   width: 100%;
+   margin: 0 auto;
+   grid-template-areas: "a t";
+   grid-template-columns: 65px 1fr;
+ }
+ 
+ .avatar {
+   width: 60px;
+   height: 60px;
+   border-radius: 20px;
+   grid-area: a;
+ }
+ 
+ .message_area {
+   margin: 5px;
+   grid-area: t;
+ }
+ 
+ .message_area textarea {
+   height: 35px;
+   background-color: #777777;
+   color: white;
+   border-radius: 3px;
+ }
+ .message_area button {
+   background-color: #777777;
+   border-radius: 3px;
+   margin-left: 25%;
+ }
+ 
