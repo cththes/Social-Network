@@ -1,8 +1,23 @@
-import React from 'react'
-import styles from './Navbar.module.css'
+import React from "react";
+import styles from "./Navbar.module.css";
 
-const Navbar = (props) => {
-   return(<div></div>)
-}
+const Navbar = () => {
+  return (
+    <nav className={styles.nav}>
+      <div className={styles.item}>
+        <a>Profile</a>
+      </div>
+      <div className={styles.item}>
+        <a>Messages</a>
+      </div>
+      <div className={styles.item}>
+        <a>News</a>
+      </div>
+      <div className={styles.item}>
+        <a>Music</a>
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;

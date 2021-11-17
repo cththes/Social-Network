@@ -7,12 +7,14 @@ import Profile from './components/Profile/Profile';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Navbar />
+    <div className="app-wrapper">
+    <Header />
+    <Navbar />
+    <div className="app-wrapper-content">
       <Profile />
       <Dialogs />
     </div>
+  </div>
   );
 }
 
