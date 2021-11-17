@@ -4,23 +4,14 @@ import Message from "./Message/Message";
 import User from "./User/User";
 import DialogItem from "./DialogItem/DialogItem";
 
-let dialogsData = [
-  { name: "cth", id: "1" },
-  { name: "FV", id: "2" },
-  { name: "Valentin Oblomov", id: "3" },
-];
+const Dialogs = (props) => {
+  let dialogsElement = props.state.dialogsData.map((dialog) => (
+    <DialogItem name={dialog.name} id={dialog.id} />
+  ));
 
-let messagesData = [{ message: "hello" }];
-
-let dialogsElement = dialogsData.map((dialog) => (
-  <DialogItem name={dialog.name} id={dialog.id} />
-));
-
-let messagesElement = messagesData.map((message) => (
-  <Message message={message.message} />
-));
-
-const Dialogs = () => {
+  let messagesElement = props.state.messagesData.map((message) => (
+    <Message message={message.message} />
+  ));
   return (
     <div className={styles.dialogs}>
       <div className={styles.dialogsItems}>{dialogsElement}</div>

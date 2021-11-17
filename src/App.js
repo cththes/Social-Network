@@ -6,15 +6,15 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import { Routes, Route } from "react-router-dom";
 
-const App = () => {
+const App = (props) => {
   return (
     <div className="app-wrapper">
       <Header />
       <Navbar />
       <div className="app-wrapper-content">
         <Routes>
-          <Route element={<Profile />} path="profile" />
-          <Route element={<Dialogs />} path="dialogs/*" />
+          <Route element={<Profile state={props.state.profilePage}/>} path="profile" />
+          <Route element={<Dialogs state={props.state.dialogsPage}/>} path="dialogs/*" />
           <Route path="news" />
           <Route path="music" />
           <Route path="settings" />
