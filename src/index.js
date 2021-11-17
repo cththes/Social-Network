@@ -4,24 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-
-let state = {
-  profilePage: {
-    postsData: [
-      { id: "1", message: "hello" },
-      { id: "2", message: "it's my 2nd post" },
-    ],
-  },
-  dialogsPage: {
-    dialogsData: [
-      { name: "cth", id: "1" },
-      { name: "FV", id: "2" },
-      { name: "Valentin Oblomov", id: "3" },
-    ],
-
-    messagesData: [{ message: "hello" }],
-  },
-};
+import state from "./redux/state";
 
 ReactDOM.render(
   <React.StrictMode>
