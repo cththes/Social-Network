@@ -3,21 +3,25 @@ import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-  let postsElements = props.posts.map((posts) => (
-    <Post id={posts.id} message={posts.message} />
+  let postsElements = props.posts.map((p) => (
+    <Post id={p.id} message={p.message} />
   ));
 
-  let newPostElement = React.createRef();
+  let newMessageElement = React.createRef();
 
-  let addPost = ()=>{
-    let text = newPostElement.current.value
+  let addPost = () => {
+    let text = newMessageElement.current.value;
     props.addPost(text)
+    newMessageElement.current.value = ''
   };
   return (
     <div>
       My Posts:
       <div className={styles.post_area}>
-        <textarea ref={newPostElement} placeholder="Введите текст"></textarea>
+        <textarea
+          ref={newMessageElement}
+          placeholder="Введите текст"
+        ></textarea>
         <div>
           <button onClick={addPost}>Add Post</button>
         </div>

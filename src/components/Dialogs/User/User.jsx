@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./User.module.css";
 
-const User = () => {
+const User = (props) => {
   let newMessageElement = React.createRef();
 
   let sendMessage = () => {
     let text = newMessageElement.current.value;
-    alert(text);
+    props.sendMessage(text);
+    newMessageElement.current.value = "";
   };
   return (
     <div className={styles.item}>

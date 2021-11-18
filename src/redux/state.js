@@ -1,27 +1,40 @@
+import rerenderEntireTree from "./../render";
 let state = {
   profilePage: {
-    postsData: [
-      { id: "1", message: "hello" },
-      { id: "2", message: "it's my 2nd post" },
+    posts: [
+      { message: "hello", id: 1 },
     ],
   },
   dialogsPage: {
-    dialogsData: [
-      { name: "cth", id: "1" },
-      { name: "FV", id: "2" },
-      { name: "Valentin Oblomov", id: "3" },
+    messages: [
+      { id: 1, message: "( ͡° ͜ʖ ͡°)" },
     ],
-
-    messagesData: [{ message: "hello" }],
+    dialogs: [
+      { id: 1, name: "sgt. Florida" },
+      { id: 2, name: "cth" },
+      { id: 3, name: "FV" },
+      { id: 4, name: "Valentin Oblomov" },
+      { id: 5, name: "ШУТУП" },
+    ],
   },
 };
 
 export let addPost = (postMessage) => {
   let newPost = {
-    id: "3",
+    id: 2,
     message: postMessage,
   };
-  state.profilePage.postsData.push(newPost);
+  state.profilePage.posts.push(newPost);
+  rerenderEntireTree(state);
+};
+
+export let sendMessage = (postMessage) => {
+  let newMessage = {
+    id: 2,
+    message: postMessage,
+  };
+  state.dialogsPage.messages.push(newMessage);
+  rerenderEntireTree(state);
 };
 
 export default state;
