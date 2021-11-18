@@ -4,10 +4,13 @@ import styles from "./User.module.css";
 const User = (props) => {
   let newMessageElement = React.createRef();
 
-  let sendMessage = () => {
+  let onMessageChange = () => {
     let text = newMessageElement.current.value;
-    props.sendMessage(text);
-    newMessageElement.current.value = "";
+    props.updateNewMessageText(text);
+  };
+
+  let sendMessage = () => {
+    props.sendMessage();
   };
   return (
     <div className={styles.item}>
@@ -19,6 +22,8 @@ const User = (props) => {
         <textarea
           ref={newMessageElement}
           placeholder="Введите сообщение: "
+          value={props.newMessageText}
+          onChange={onMessageChange}
         ></textarea>
         <div>
           <button onClick={sendMessage}>Отправить</button>

@@ -3,3 +3,12 @@
   height: 60px;
   border-radius: 20px;
 }
+
+.post {
+  display: table-cell;
+  vertical-align: middle;
+  padding-left:6px;
+}
+.item{
+  display: table;
+}
