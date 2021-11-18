@@ -16,8 +16,7 @@ const App = (props) => {
           <Route
             element={
               <Profile
-                posts={props.state.profilePage.posts}
-                newPostText={props.state.profilePage.newPostText}
+                profilePage={props.state.profilePage}
                 addPost={props.addPost}
                 updateNewPostText={props.updateNewPostText}
               />
@@ -27,8 +26,7 @@ const App = (props) => {
           <Route
             element={
               <Dialogs
-                newMessageText={props.state.dialogsPage.newMessageText}
-                state={props.state.dialogsPage}
+                dialogsPage={props.state.dialogsPage}
                 sendMessage={props.sendMessage}
                 updateNewMessageText={props.updateNewMessageText}
               />
