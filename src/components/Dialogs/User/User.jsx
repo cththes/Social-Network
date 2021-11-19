@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./User.module.css";
-import { sendMessageAC, updateNewMessageTextAC } from "../../../redux/store";
+import { sendMessageAC, updateNewMessageTextAC } from "./../../../redux/dialogs-reducer";
 
 const User = (props) => {
   let newMessageElement = React.createRef();

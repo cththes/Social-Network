@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import { addPostAC, updateNewPostTextAC } from "../../../redux/store";
+import { addPostAC, updateNewPostTextAC } from "./../../../redux/profile-reducer";
 const MyPosts = (props) => {
   let newMessageElement = React.createRef();
 
