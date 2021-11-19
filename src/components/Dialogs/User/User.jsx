@@ -1,16 +1,17 @@
 import React from "react";
 import styles from "./User.module.css";
+import { sendMessageAC, updateNewMessageTextAC } from "../../../redux/store";
 
 const User = (props) => {
   let newMessageElement = React.createRef();
 
   let onMessageChange = () => {
     let text = newMessageElement.current.value;
-    props.dispatch({type:'UPDATE-NEW-MESSAGE-TEXT',newText:text})
+    props.dispatch(updateNewMessageTextAC(text))
   };
 
   let sendMessage = () => {
-    props.dispatch({type:'SEND-MESSAGE'})
+    props.dispatch(sendMessageAC())
   };
   return (
     <div className={styles.item}>

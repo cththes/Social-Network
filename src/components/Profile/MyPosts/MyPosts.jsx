@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
-
+import { addPostAC, updateNewPostTextAC } from "../../../redux/store";
 const MyPosts = (props) => {
   let newMessageElement = React.createRef();
 
@@ -11,11 +11,11 @@ const MyPosts = (props) => {
 
   let onPostChange = () => {
     let text = newMessageElement.current.value;
-    props.dispatch({ type: "UPDATE-NEW-POST-TEXT", newText: text });
+    props.dispatch(updateNewPostTextAC(text));
   };
 
   let addPost = () => {
-    props.dispatch({ type: "ADD-POST" });
+    props.dispatch(addPostAC());
   };
   return (
     <div>
