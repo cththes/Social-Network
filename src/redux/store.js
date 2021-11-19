@@ -1,3 +1,8 @@
+const ADD_POST = "ADD-POST";
+const SEND_MESSAGE = "SEND-MESSAGE";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+
 export let store = {
   _state: {
     profilePage: {
@@ -17,38 +22,48 @@ export let store = {
     },
   },
   _callsubscriber() {},
-  addPost() {
-    let newPost = {
-      id: 2,
-      message: this._state.profilePage.newPostText,
-    };
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._callsubscriber(this._state);
-  },
-  sendMessage() {
-    let newMessage = {
-      id: 2,
-      message: this._state.dialogsPage.newMessageText,
-    };
-    this._state.dialogsPage.messages.push(newMessage);
-    this._state.dialogsPage.newMessageText = "";
-    this._callsubscriber(this._state);
-  },
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callsubscriber(this._state);
-  },
-  updateNewMessageText(newText) {
-    this._state.dialogsPage.newMessageText = newText;
-    this._callsubscriber(this._state);
-  },
   subscribe(observer) {
     this._callsubscriber = observer;
   },
-  getState(){
-    return(this._state)
-  }
+  getState() {
+    return this._state;
+  },
+  dispatch(action) {
+    switch (action.type) {
+      case ADD_POST: {
+        let newPost = {
+          id: 2,
+          message: this._state.profilePage.newPostText,
+        };
+        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.newPostText = "";
+        this._callsubscriber(this._state);
+        return this._state;
+      }
+      case SEND_MESSAGE: {
+        let newMessage = {
+          id: 2,
+          message: this._state.dialogsPage.newMessageText,
+        };
+        this._state.dialogsPage.messages.push(newMessage);
+        this._state.dialogsPage.newMessageText = "";
+        this._callsubscriber(this._state);
+        return this._state;
+      }
+      case UPDATE_NEW_POST_TEXT: {
+        this._state.profilePage.newPostText = action.newText;
+        this._callsubscriber(this._state);
+        return this._state;
+      }
+      case UPDATE_NEW_MESSAGE_TEXT: {
+        this._state.dialogsPage.newMessageText = action.newText;
+        this._callsubscriber(this._state);
+        return this._state;
+      }
+      default:
+        return this._state;
+    }
+  },
 };
 
 export default store;

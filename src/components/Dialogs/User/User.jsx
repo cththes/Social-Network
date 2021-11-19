@@ -6,11 +6,11 @@ const User = (props) => {
 
   let onMessageChange = () => {
     let text = newMessageElement.current.value;
-    props.updateNewMessageText(text);
+    props.dispatch({type:'UPDATE-NEW-MESSAGE-TEXT',newText:text})
   };
 
   let sendMessage = () => {
-    props.sendMessage();
+    props.dispatch({type:'SEND-MESSAGE'})
   };
   return (
     <div className={styles.item}>

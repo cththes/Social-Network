@@ -17,8 +17,7 @@ const App = (props) => {
             element={
               <Profile
                 profilePage={props.state.profilePage}
-                addPost={props.addPost}
-                updateNewPostText={props.updateNewPostText}
+                dispatch={props.dispatch}
               />
             }
             path="profile"
@@ -27,8 +26,7 @@ const App = (props) => {
             element={
               <Dialogs
                 dialogsPage={props.state.dialogsPage}
-                sendMessage={props.sendMessage}
-                updateNewMessageText={props.updateNewMessageText}
+                dispatch={props.dispatch}
               />
             }
             path="dialogs/*"
