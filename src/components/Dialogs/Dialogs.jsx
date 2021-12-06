@@ -12,7 +12,6 @@ const Dialogs = (props) => {
   let messagesElements = state.messages.map((m) => (
     <Message message={m.message} />
   ));
-
   return (
     <div className={styles.dialogs}>
       <div className={styles.dialogsItems}>{dialogsElements}</div>
