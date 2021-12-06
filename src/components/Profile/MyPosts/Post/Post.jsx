@@ -6,7 +6,7 @@ const Post = (props) => {
     <div className={styles.item}>
       <img
         className={styles.avatar}
-        src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/85/858258a36b14983df2fcab7dd840dcc2bb13aa2e_full.jpg"
+        src="https://avatars.githubusercontent.com/u/94492515?v=4"
       />
       <span className={styles.post}>{props.message}</span>
     </div>

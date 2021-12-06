@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./User.module.css";
 
 const User = (props) => {
-  let state = props.state;
 
   let newMessageElement = React.createRef();
 
@@ -18,13 +17,13 @@ const User = (props) => {
     <div className={styles.item}>
       <img
         className={styles.avatar}
-        src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/85/858258a36b14983df2fcab7dd840dcc2bb13aa2e_full.jpg"
+        src="https://avatars.githubusercontent.com/u/94492515?v=4"
       />
       <div className={styles.message_area}>
         <textarea
           ref={newMessageElement}
           placeholder="Введите сообщение: "
-          value={state.newMessageText}
+          value={props.newMessageText}
           onChange={onMessageChange}
         ></textarea>
         <div>
