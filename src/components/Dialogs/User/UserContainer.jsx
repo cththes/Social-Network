@@ -1,4 +1,3 @@
-import React from "react";
 import {
   sendMessageAC,
   updateNewMessageTextAC,
@@ -6,11 +5,11 @@ import {
 import User from "./User";
 import { connect } from "react-redux";
 
-let mapStateToProps = (state) =>{
-  return{
-    newMessageText:state.dialogsPage.newMessageText
-  }
-}
+let mapStateToProps = (state) => {
+  return {
+    newMessageText: state.dialogsPage.newMessageText,
+  };
+};
 
 let mapDispatchToProps = (dispatch) => {
   return {

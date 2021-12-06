@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import Dialogs from "./components/Dialogs/Dialogs";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import { Routes, Route } from "react-router-dom";
 
-const App = (props) => {
+const App = () => {
   return (
     <div className="app-wrapper">
       <Header />
@@ -14,7 +14,7 @@ const App = (props) => {
       <div className="app-wrapper-content">
         <Routes>
           <Route element={<Profile />} path="profile" />
-          <Route element={<Dialogs store={props.store} />} path="dialogs/*" />
+          <Route element={<DialogsContainer />} path="dialogs/*" />
           <Route path="news" />
           <Route path="music" />
           <Route path="settings" />
