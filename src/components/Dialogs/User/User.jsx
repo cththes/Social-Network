@@ -1,17 +1,18 @@
 import React from "react";
 import styles from "./User.module.css";
-import { sendMessageAC, updateNewMessageTextAC } from "./../../../redux/dialogs-reducer";
 
 const User = (props) => {
+  let state = props.state;
+
   let newMessageElement = React.createRef();
 
   let onMessageChange = () => {
     let text = newMessageElement.current.value;
-    props.dispatch(updateNewMessageTextAC(text))
+    props.updateNewMessageText(text);
   };
 
-  let sendMessage = () => {
-    props.dispatch(sendMessageAC())
+  let onSendMessage = () => {
+    props.sendMessage();
   };
   return (
     <div className={styles.item}>
@@ -23,11 +24,11 @@ const User = (props) => {
         <textarea
           ref={newMessageElement}
           placeholder="Введите сообщение: "
-          value={props.newMessageText}
+          value={state.newMessageText}
           onChange={onMessageChange}
         ></textarea>
         <div>
-          <button onClick={sendMessage}>Отправить</button>
+          <button onClick={onSendMessage}>Отправить</button>
         </div>
       </div>
     </div>
