@@ -3,12 +3,12 @@
   color: #777777;
   display: grid;
   width: 100%;
-  height: 650px;
+
   margin: 0 auto;
   grid-template-areas:
     "h h h"
     "n c c";
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 60px minmax(600px, 100%);
   grid-template-columns: 2fr 10fr;
   grid-gap: 10px;
 }

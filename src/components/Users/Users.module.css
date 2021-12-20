@@ -1,0 +1,15 @@
+.userPhoto {
+   width: 60px;
+   height: 60px;
+   border-radius: 20px;
+}
+
+.status {
+  font-style: italic;
+}
+
+.user {
+   padding:3px;
+   background-color: #2b2a33;
+   margin-bottom:8px;
+}

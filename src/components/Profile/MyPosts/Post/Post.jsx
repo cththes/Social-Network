@@ -7,7 +7,7 @@ const Post = (props) => {
       <img
         className={styles.avatar}
         src="https://avatars.githubusercontent.com/u/94492515?v=4"
-      />
+       alt=''/>
       <span className={styles.post}>{props.message}</span>
     </div>
   );
