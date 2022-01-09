@@ -17,7 +17,7 @@ const App = () => {
         <Routes>
           <Route element={<Profile />} path="profile" />
           <Route element={<DialogsContainer />} path="dialogs/*" />
-          <Route element={<UsersContainer />} path="users/" />
+          <Route element={<UsersContainer />} path="users/*" />
           <Route path="news" />
           <Route path="music" />
           <Route path="settings" />
