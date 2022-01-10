@@ -1,10 +1,15 @@
 import React from "react";
+import Preloader from "../Common/Preloader/Preloader";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import styles from "./Profile.module.css";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-const Profile = () => {
+const Profile = (props) => {
+  if (!props.profile) {
+    return <Preloader />;
+  }
   return (
-    <div className={styles.content}>
+    <div>
+      <ProfileInfo profile={props.profile} />
       <MyPostsContainer />
     </div>
   );

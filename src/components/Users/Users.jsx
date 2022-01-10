@@ -38,13 +38,15 @@ const Users = (props) => {
               <span>
                 <div>{user.name}</div>
                 <div className={styles.status}>{user.status}</div>
-                <img
-                  src={
-                    user.photos.small != null ? user.photos.small : userPhoto
-                  }
-                  alt=""
-                  className={styles.userPhoto}
-                />
+                <NavLink to={"/profile/"+user.id}>
+                  <img
+                    src={
+                      user.photos.small != null ? user.photos.small : userPhoto
+                    }
+                    alt=""
+                    className={styles.userPhoto}
+                  />
+                </NavLink>
               </span>
             </div>
             <span>

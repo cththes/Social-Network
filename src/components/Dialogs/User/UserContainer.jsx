@@ -1,6 +1,6 @@
 import {
-  sendMessageAC,
-  updateNewMessageTextAC,
+  sendMessage,
+  updateNewMessageText,
 } from "../../../redux/dialogs-reducer";
 import User from "./User";
 import { connect } from "react-redux";
@@ -11,18 +11,9 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    sendMessage: () => {
-      dispatch(sendMessageAC());
-    },
-
-    updateNewMessageText: (text) => {
-      dispatch(updateNewMessageTextAC(text));
-    },
-  };
-};
-
-const UserContainer = connect(mapStateToProps, mapDispatchToProps)(User);
+const UserContainer = connect(mapStateToProps, {
+  sendMessage,
+  updateNewMessageText,
+})(User);
 
 export default UserContainer;
