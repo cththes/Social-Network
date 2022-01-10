@@ -7,7 +7,6 @@ import Navbar from "./components/Navbar/Navbar";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import { Routes, Route } from "react-router-dom";
 
-
 const App = () => {
   return (
     <div className="app-wrapper">
@@ -15,7 +14,8 @@ const App = () => {
       <Navbar />
       <div className="app-wrapper-content">
         <Routes>
-          <Route element={<ProfileContainer />} path="profile/*" />
+          <Route element={<ProfileContainer />} path="profile" />
+          <Route element={<ProfileContainer />} path="profile/:userId" />
           <Route element={<DialogsContainer />} path="dialogs/*" />
           <Route element={<UsersContainer />} path="users/*" />
           <Route path="news" />
