@@ -16,13 +16,13 @@ export const usersAPI = {
         return response.data;
       });
   },
-  unfollow(id) {
-    return instanse.delete(`unfollow/${id}`).then((response) => {
+  unfollow(userId) {
+    return instanse.delete(`unfollow/${userId}`).then((response) => {
       return response.data;
     });
   },
-  follow(id) {
-    return instanse.post(`follow/${id}`).then((response) => {
+  follow(userId) {
+    return instanse.post(`follow/${userId}`).then((response) => {
       return response.data;
     });
   },
