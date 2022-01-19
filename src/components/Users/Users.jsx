@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "./../../api/api";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -57,13 +56,7 @@ const Users = (props) => {
                     (id) => id === user.id
                   )}
                   onClick={() => {
-                    props.toggleInProgress(true, user.id);
-                    usersAPI.unfollow(user.id).then((data) => {
-                      if (data.resultCode === 0) {
-                        props.unfollow(user.id);
-                      }
-                      props.toggleInProgress(false, user.id);
-                    });
+                    props.unfollow(user.id);
                   }}
                 >
                   Unfollow
@@ -74,13 +67,7 @@ const Users = (props) => {
                     (id) => id === user.id
                   )}
                   onClick={() => {
-                    props.toggleInProgress(true, user.id);
-                    usersAPI.follow(user.id).then((data) => {
-                      if (data.resultCode === 0) {
-                        props.follow(user.id);
-                      }
-                      props.toggleInProgress(false, user.id);
-                    });
+                    props.follow(user.id);
                   }}
                 >
                   Follow

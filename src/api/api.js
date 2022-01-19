@@ -31,4 +31,9 @@ export const usersAPI = {
       return response.data;
     });
   },
+  authMe() {
+    return instanse.get(`auth/me`).then((response) => {
+      return response.data;
+    });
+  },
 };
