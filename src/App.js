@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import { Routes, Route } from "react-router-dom";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <div className="app-wrapper-content">
         <Routes>
           <Route element={<ProfileContainer />} path="profile" />
+          <Route element={<Login />} path="login" />
           <Route element={<ProfileContainer />} path="profile/:userId" />
           <Route element={<DialogsContainer />} path="dialogs/*" />
           <Route element={<UsersContainer />} path="users/*" />
