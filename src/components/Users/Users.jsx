@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 import { NavLink } from "react-router-dom";
+import * as axios from "axios";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -22,7 +23,7 @@ const Users = (props) => {
               <span
                 className={props.currentPage === page && styles.selectedPage}
                 onClick={() => {
-                  props.onPageChange(page);
+                  props.onPageChanged(page);
                 }}
               >
                 {page}{" "}
