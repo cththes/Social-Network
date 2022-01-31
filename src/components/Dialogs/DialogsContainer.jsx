@@ -1,17 +1,16 @@
+import React from "react";
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
+import { withAuthNavigate } from "./../hoc/withAuthNavigate";
 
 let mapStateToProps = (state) => {
   return {
     state: state.dialogsPage,
-    isAuth: state.auth.isAuth
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {};
-};
+let AuthNavigateComponent = withAuthNavigate(Dialogs);
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+const DialogsContainer = connect(mapStateToProps)(AuthNavigateComponent);
 
 export default DialogsContainer;
