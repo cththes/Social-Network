@@ -2,6 +2,7 @@ import React from "react";
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 import { withAuthNavigate } from "./../hoc/withAuthNavigate";
+import { compose } from "redux";
 
 let mapStateToProps = (state) => {
   return {
@@ -9,8 +10,8 @@ let mapStateToProps = (state) => {
   };
 };
 
-let AuthNavigateComponent = withAuthNavigate(Dialogs);
+export default compose(
+  connect(mapStateToProps),
+  withAuthNavigate
+)(Dialogs);
 
-const DialogsContainer = connect(mapStateToProps)(AuthNavigateComponent);
-
-export default DialogsContainer;
