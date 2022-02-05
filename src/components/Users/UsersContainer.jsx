@@ -9,7 +9,7 @@ import {
 } from "../../redux/users-reducer";
 import Preloader from "../Common/Preloader/Preloader";
 import Users from "./Users";
-import { withAuthNavigate } from "./../hoc/withAuthNavigate";
+import { withAuthNavigate } from "./../../hoc/withAuthNavigate";
 import { compose } from "redux";
 
 class UsersContainer extends React.Component {

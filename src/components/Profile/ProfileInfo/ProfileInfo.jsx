@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./ProfileInfo.module.css";
+import ProfileStatus from "./ProfileStatus/ProfileStatus";
 
 const ProfileInfo = (props) => {
   return (
     <div>
       <img src={props.profile.photos.large} alt="" />
+      <ProfileStatus status={"я борис"}/>
       <div>
         <span className={styles.item}>UserId:</span> {props.profile.userId}
       </div>

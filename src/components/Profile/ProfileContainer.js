@@ -3,7 +3,7 @@ import Profile from "./Profile";
 import { connect } from "react-redux";
 import { getUserProfile } from "./../../redux/profile-reducer";
 import { useParams } from "react-router-dom";
-import { withAuthNavigate } from "./../hoc/withAuthNavigate";
+import { withAuthNavigate } from "./../../hoc/withAuthNavigate";
 import { compose } from "redux";
 
 const withRouter = (WrappedComponent) => (props) => {
