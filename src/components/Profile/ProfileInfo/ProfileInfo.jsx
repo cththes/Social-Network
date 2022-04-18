@@ -1,62 +1,60 @@
 import React from "react";
 import styles from "./ProfileInfo.module.css";
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import twitterIcon from "../../../assets/images/twitter_icon.png";
+import fbIcon from "../../../assets/images/fb_icon.png";
+import instagramIcon from "../../../assets/images/Instagram_icon.png";
+import vkIcon from "../../../assets/images/vk_icon.png";
 
 const ProfileInfo = (props) => {
   return (
     <div>
+      <h1>{props.profile.fullName}</h1>
+      <ProfileStatus status={"статус"} />
       <img src={props.profile.photos.large} alt="" />
-      <ProfileStatus status={"я борис"}/>
       <div>
-        <span className={styles.item}>UserId:</span> {props.profile.userId}
-      </div>
-      <div>
-        <span className={styles.item}>AboutMe:</span> {props.profile.aboutMe}
-      </div>
-      <div>
-        <span className={styles.item}>FullName:</span> {props.profile.fullName}
-      </div>
-      <div>
-        <span className={styles.item}>LookingForAJobDescription:</span>{" "}
-        {props.profile.lookingForAJobDescription}
-      </div>
-      <div>
-        <span className={styles.item}>LookingForAJob:</span>{" "}
-        {props.profile.lookingForAJob}
-      </div>
-      <div>
-        <span className={styles.item}>Facebook:</span>{" "}
-        {props.profile.contacts.facebook}
-      </div>
-      <div>
-        <span className={styles.item}>Website:</span>{" "}
-        {props.profile.contacts.website}
-      </div>
-      <div>
-        <span className={styles.item}>Vk:</span> {props.profile.contacts.vk}
-      </div>
-      <div>
-        <span className={styles.item}>Twitter:</span>{" "}
-        {props.profile.contacts.twitter}
-      </div>
-      <div>
-        <span className={styles.item}>Instagram:</span>{" "}
-        {props.profile.contacts.instagram}
-      </div>
-      <div>
-        <span className={styles.item}>Youtube:</span>{" "}
-        {props.profile.contacts.youtube}
-      </div>
-      <div>
-        <span className={styles.item}>Github:</span>{" "}
-        {props.profile.contacts.github}
-      </div>
-      <div>
-        <span className={styles.item}>MainLink:</span>{" "}
-        {props.profile.contacts.mainLink}
+        <span className={styles.item}>
+          {" "}
+          <a
+            href={"http://www." + props.profile.contacts.facebook}
+            target="_blank"
+          >
+            <img src={fbIcon} alt="" className={styles.icon} />
+          </a>
+        </span>{" "}
+        <span className={styles.item}>
+          {" "}
+          <a href={"http://www." + props.profile.contacts.vk} target="_blank">
+            <img src={vkIcon} alt="" className={styles.icon} />
+          </a>
+        </span>{" "}
+        <span className={styles.item}>
+          {" "}
+          <a
+            href={"http://www." + props.profile.contacts.twitter}
+            target="_blank"
+          >
+            {" "}
+            <img
+              src={twitterIcon}
+              alt={props.profile.contacts.twitter}
+              className={styles.icon}
+            />
+          </a>
+        </span>{" "}
+        <span className={styles.item}>
+          {" "}
+          <a
+            href={"http://www." + props.profile.contacts.instagram}
+            target="_blank"
+          >
+            {" "}
+            <img src={instagramIcon} alt="" className={styles.icon} />
+          </a>
+        </span>{" "}
       </div>
     </div>
   );
 };
 
-export default ProfileInfo
+export default ProfileInfo;
