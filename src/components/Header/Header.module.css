@@ -1,21 +1,37 @@
-.header {
+header {
   grid-area: h;
+
+  display: grid;
+  grid-template-areas: "l m r";
+  grid-template-columns: 6fr 8fr 8fr;
   background-color: #222226;
 }
-.header img {
+
+.headerLeft {
+  grid-area: l;
+  
+}
+.headerMiddle {
+  grid-area: m;
+}
+.headerRight {
+  grid-area: r;
+}
+
+header img {
   width: 50px;
 }
 
 .loginBlock {
   float: right;
-  margin-right:10px;
+  margin-right: 10px;
   font-size: 25px;
+  margin-top: 15px;
 }
 
 .loginBlock a {
   text-decoration: none;
   color: #777777;
-
 }
 .loginBlock a:active {
   text-decoration: none;

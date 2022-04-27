@@ -1,14 +1,24 @@
 .nav {
   grid-area: n;
   background-color: #222226;
-  padding:16px;
+  padding: 16px;
+  /*float: right;
+  text-align: right;*/
+  font-family: "Comic Sans MS";
 }
 
-.Link{
+.textBlock {
+  width: 90px;
+  float: right
+}
+
+.Link {
+  grid-area: t;
   color: #777777;
   text-decoration: none;
+  display: block;
 }
-.activeLink{
+.activeLink {
   color: white;
   text-decoration: none;
 }
