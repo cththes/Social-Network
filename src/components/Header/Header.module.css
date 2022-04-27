@@ -5,6 +5,7 @@ header {
   grid-template-areas: "l m r";
   grid-template-columns: 6fr 8fr 8fr;
   background-color: #222226;
+  font-family: "Comic Sans MS";
 }
 
 .headerLeft {
@@ -27,7 +28,7 @@ header img {
   float: right;
   margin-right: 10px;
   font-size: 25px;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 
 .loginBlock a {
