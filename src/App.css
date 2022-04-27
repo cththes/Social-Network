@@ -9,7 +9,7 @@
   grid-template-areas:
     "h h h"
     "n c c";
-  grid-template-rows: 60px 100vh;
+  grid-template-rows: 60px minmax(100vh, 100%);
   grid-template-columns: 6fr 8fr 8fr;
   grid-gap: 5px;
 }

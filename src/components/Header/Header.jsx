@@ -5,10 +5,11 @@ import styles from "./Header.module.css";
 const Header = (props) => {
   return (
     <header>
-      <div className={styles.headerLeft}></div>
+      <div className={styles.headerLeft}>
+        <img src="https://freepngimg.com/download/planescape_torment/28170-4-planescape-torment-logo-free-download.png" />
+      </div>
       <div className={styles.headerMiddle}>
         {" "}
-        <img src="https://freepngimg.com/download/planescape_torment/28170-4-planescape-torment-logo-free-download.png" />
         <div className={styles.loginBlock}>
           {props.isAuth ? props.login : <NavLink to={"/login"}>Login</NavLink>}
         </div>
