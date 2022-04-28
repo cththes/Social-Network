@@ -1,39 +1,44 @@
 import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import { Field, reduxForm } from "redux-form";
+
+const AddNewPostForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit}>
+      {" "}
+      <Field
+        component={"textarea"}
+        name={"newPostText"}
+        placeholder={"Введите текст"}
+      />
+      <div>
+        <button onClick={props.onAddPost}>Add Post</button>
+      </div>
+    </form>
+  );
+};
+
+const AddNewPostReduxForm = reduxForm({
+  form: "post",
+})(AddNewPostForm);
 
 const MyPosts = (props) => {
-
-  let state = props.state
-
-  let newMessageElement = React.createRef();
+  let state = props.state;
 
   let postsElements = state.posts.map((p) => (
     <Post id={p.id} message={p.message} />
   ));
 
-  let onPostChange = () => {
-    let text = newMessageElement.current.value;
-    props.updateNewPostText(text)
+  let addNewPost = (values) => {
+    props.addPost(values.newPostText);
   };
 
-  let onAddPost = () => {
-    props.addPost()
-  };
   return (
     <div>
       My Posts:
-      <div className={styles.post_area}>
-        <textarea
-          ref={newMessageElement}
-          placeholder="Введите текст"
-          value={state.newPostText}
-          onChange={onPostChange}
-        ></textarea>
-        <div>
-          <button onClick={onAddPost}>Add Post</button>
-        </div>
-      </div>
+      <AddNewPostReduxForm onSubmit={addNewPost} />
+      <div className={styles.post_area}></div>
       <div>{postsElements}</div>
     </div>
   );

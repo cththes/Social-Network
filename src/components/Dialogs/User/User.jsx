@@ -1,35 +1,41 @@
 import React from "react";
 import styles from "./User.module.css";
+import { Field, reduxForm } from "redux-form";
+
+const AddMessageForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit}>
+      <Field
+        component={"textarea"}
+        name={"newMessageText"}
+        placeholder={"Введите сообщение: "}
+      />
+      <div>
+        <button onClick={props.onSendMessage}>Отправить</button>
+      </div>
+    </form>
+  );
+};
+
+const AddMessageReduxForm = reduxForm({
+  form: "dialogAddMessageForm",
+})(AddMessageForm);
 
 const User = (props) => {
-
   let newMessageElement = React.createRef();
 
-  let onMessageChange = () => {
-    let text = newMessageElement.current.value;
-    props.updateNewMessageText(text);
+  let addNewMessage = (values) => {
+    props.sendMessage(values.newMessageText);
   };
 
-  let onSendMessage = () => {
-    props.sendMessage();
-  };
   return (
     <div className={styles.item}>
       <img
         className={styles.avatar}
         src="https://avatars.githubusercontent.com/u/94492515?v=4"
       />
-      <div className={styles.message_area}>
-        <textarea
-          ref={newMessageElement}
-          placeholder="Введите сообщение: "
-          value={props.newMessageText}
-          onChange={onMessageChange}
-        ></textarea>
-        <div>
-          <button onClick={onSendMessage}>Отправить</button>
-        </div>
-      </div>
+      <AddMessageReduxForm onSubmit={addNewMessage} />
+      <div className={styles.message_area}></div>
     </div>
   );
 };
