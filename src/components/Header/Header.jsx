@@ -9,9 +9,18 @@ const Header = (props) => {
         <img src="https://freepngimg.com/download/planescape_torment/28170-4-planescape-torment-logo-free-download.png" />
       </div>
       <div className={styles.headerMiddle}>
-        {" "}
+       
         <div className={styles.loginBlock}>
-          {props.isAuth ? props.login : <NavLink to={"/login"}>Login</NavLink>}
+          {props.isAuth ? (
+            <div>
+              {props.login}
+              <button onClick={props.logout} className={styles.logoutBtn}>
+                Log Out
+              </button>
+            </div>
+          ) : (
+            <NavLink to={"/login"}>Login</NavLink>
+          )}
         </div>
       </div>
       <div className={styles.headerRight}></div>
@@ -20,3 +29,5 @@ const Header = (props) => {
 };
 
 export default Header;
+
+/* <button onClick={props.switchTheme}>{props.darkTheme ? "Light Theme" : "Dark Theme"}</button>*/

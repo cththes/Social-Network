@@ -39,3 +39,7 @@ header img {
   text-decoration: none;
   color: white;
 }
+
+.logoutBtn {
+  margin-left:10px;
+}
