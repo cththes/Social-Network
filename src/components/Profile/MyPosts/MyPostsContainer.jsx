@@ -8,8 +8,14 @@ let mapStateToProps = (state) => {
   };
 };
 
-const MyPostsContainer = connect(mapStateToProps, {
-  addPost,
-})(MyPosts);
+let mapDispatchToProps = (dispatch) => {
+  return {
+    addPost: (newPostText) => {
+      dispatch(addPost(newPostText));
+    },
+  };
+};
+
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
 export default MyPostsContainer;

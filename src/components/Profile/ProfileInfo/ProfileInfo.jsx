@@ -8,7 +8,7 @@ import vkIcon from "../../../assets/images/vk_icon.png";
 
 const ProfileInfo = (props) => {
   return (
-    <div>
+    <div className={styles.profileInfo}>
       <h1>{props.profile.fullName}</h1>
       <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
       <img src={props.profile.photos.large} alt="" />

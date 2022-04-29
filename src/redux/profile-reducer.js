@@ -6,7 +6,6 @@ const SET_STATUS = "SET_STATUS";
 
 let initialState = {
   posts: [{ message: "Tomorrow can take care of itself", id: 1 }],
-  newPostText: "",
   profile: null,
   status: "",
 };

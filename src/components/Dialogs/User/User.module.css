@@ -3,7 +3,7 @@
   display: grid;
   width: 100%;
   margin: 0 auto;
-  grid-template-areas: "a t";
+  grid-template-areas: "a";
   grid-template-columns: 65px 1fr;
 }
 
@@ -16,7 +16,6 @@
 
 .message_area {
   margin: 5px;
-  grid-area: t;
 }
 
 .message_area textarea {

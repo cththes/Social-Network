@@ -1,14 +1,21 @@
 import React from "react";
 import styles from "./User.module.css";
 import { Field, reduxForm } from "redux-form";
+import {
+  required,
+  maxLengthCreator,
+  minLengthCreator,
+} from "./../../../utils/validators/index";
+import { Textarea } from "../../Common/FormsControls/FormsControls";
 
 const AddMessageForm = (props) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={props.handleSubmit} className={styles.message_area}>
       <Field
-        component={"textarea"}
-        name={"newMessageText"}
+        name="newMessageText"
+        component={Textarea}
         placeholder={"Введите сообщение: "}
+        validate={[required, maxLengthCreator(10), minLengthCreator(1)]}
       />
       <div>
         <button onClick={props.onSendMessage}>Отправить</button>
@@ -17,13 +24,11 @@ const AddMessageForm = (props) => {
   );
 };
 
-const AddMessageReduxForm = reduxForm({
-  form: "dialogAddMessageForm",
-})(AddMessageForm);
+let AddMessageFormRedux = reduxForm({ form: "ProfileAddNewPostForm" })(
+  AddMessageForm
+);
 
 const User = (props) => {
-  let newMessageElement = React.createRef();
-
   let addNewMessage = (values) => {
     props.sendMessage(values.newMessageText);
   };
@@ -34,7 +39,7 @@ const User = (props) => {
         className={styles.avatar}
         src="https://avatars.githubusercontent.com/u/94492515?v=4"
       />
-      <AddMessageReduxForm onSubmit={addNewMessage} />
+      <AddMessageFormRedux onSubmit={addNewMessage} />
       <div className={styles.message_area}></div>
     </div>
   );
