@@ -5,6 +5,7 @@ import { required } from "./../../utils/validators/index";
 import { connect } from "react-redux";
 import { login, logout } from "./../../redux/auth-reducer";
 import { Navigate } from "react-router-dom";
+import styles from "./../Common/FormsControls/FormsControls.module.css";
 
 const LoginForm = (props) => {
   return (
@@ -34,6 +35,9 @@ const LoginForm = (props) => {
           validate={required}
         />
       </div>
+      {props.error && (
+        <div className={styles.formSummaryError}>{props.error}</div>
+      )}
       <div>
         <button>Login</button>
       </div>
@@ -48,19 +52,19 @@ const Login = (props) => {
     props.login(formData.email, formData.password, formData.rememberMe);
   };
 
-  if (props.isAuth){
-    return <Navigate to={"/profile"}/>
+  if (props.isAuth) {
+    return <Navigate to={"/profile"} />;
   } else
-  return (
-    <div>
-      <h1>LOGIN</h1>
-      <LoginFormRedux onSubmit={onSubmit} />
-    </div>
-  );
+    return (
+      <div>
+        <h1>LOGIN</h1>
+        <LoginFormRedux onSubmit={onSubmit} />
+      </div>
+    );
 };
 
-const mapStateToProps = (state) =>({
-  isAuth: state.auth.isAuth
-})
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth,
+});
 
 export default connect(mapStateToProps, { login, logout })(Login);
