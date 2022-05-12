@@ -6,20 +6,23 @@ import {
   getStatus,
   updateStatus,
 } from "./../../redux/profile-reducer";
-import { useParams } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import { withAuthNavigate } from "./../../hoc/withAuthNavigate";
 import { compose } from "redux";
 
-const withRouter = (WrappedComponent) => (props) => {
+
+export const withRouter = (WrappedComponent) => (props) => {
   let params = useParams();
   return <WrappedComponent {...props} params={params} />;
 };
-
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    let userId = this.props.params.userId;
+    let userId = this.props.match.params.userId;
     if (!userId) {
       userId = this.props.authorizedUserId;
+      if (!userId) {
+        this.props.history.push("/login");
+      }
     }
     this.props.getUserProfile(userId);
     setTimeout(() => {

@@ -5,8 +5,13 @@ import twitterIcon from "../../../assets/images/twitter_icon.png";
 import fbIcon from "../../../assets/images/fb_icon.png";
 import instagramIcon from "../../../assets/images/Instagram_icon.png";
 import vkIcon from "../../../assets/images/vk_icon.png";
+import Preloader from "./../../Common/Preloader/Preloader";
 
 const ProfileInfo = (props) => {
+  if (!props.profile) {
+    return <Preloader />;
+  }
+  
   return (
     <div className={styles.profileInfo}>
       <h1>{props.profile.fullName}</h1>
