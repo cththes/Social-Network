@@ -23,17 +23,11 @@ export const withRouter = (WrappedComponent) => (props) => {
 };
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    let userId = this.props.match.params.userId;
+    let userId = this.props.params.userId;
     if (!userId) {
-      userId = this.props.authorizedUserId;
-      if (!userId) {
-        this.props.history.push("/login");
-      }
+      userId = 2;
     }
     this.props.getUserProfile(userId);
-    setTimeout(() => {
-      this.props.getStatus(userId);
-    }, 1000);
   }
   render() {
     return (
@@ -51,11 +45,11 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    profile: getProfile(),
-    status: getStatus(),
-    updateStatus: getUpdateStatus(),
-    authorizedUserId: getAuthorizedUserId(),
-    isAuth: getIsAuth(),
+    profile: getProfile(state),
+    status: getStatus(state),
+    updateStatus: getUpdateStatus(state),
+    authorizedUserId: getAuthorizedUserId(state),
+    isAuth: getIsAuth(state),
   };
 };
 
