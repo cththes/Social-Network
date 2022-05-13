@@ -6,6 +6,7 @@ import fbIcon from "../../../assets/images/fb_icon.png";
 import instagramIcon from "../../../assets/images/Instagram_icon.png";
 import vkIcon from "../../../assets/images/vk_icon.png";
 import Preloader from "./../../Common/Preloader/Preloader";
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -15,7 +16,7 @@ const ProfileInfo = (props) => {
   return (
     <div className={styles.profileInfo}>
       <h1>{props.profile.fullName}</h1>
-      <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+      <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
       <img src={props.profile.photos.large} alt="" />
       <div>
         {props.profile.contacts.facebook !== null && (
