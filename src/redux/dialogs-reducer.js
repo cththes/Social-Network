@@ -1,4 +1,4 @@
-const SEND_MESSAGE = "SEND-MESSAGE";
+const SEND_MESSAGE = "dialogsPage/SEND-MESSAGE";
 
 let initialState = {
   messages: [{ message: "( ͡° ͜ʖ ͡°)", id: 1 }],
