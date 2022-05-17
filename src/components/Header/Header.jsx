@@ -6,10 +6,12 @@ const Header = (props) => {
   return (
     <header>
       <div className={styles.headerLeft}>
-        <img src="https://freepngimg.com/download/planescape_torment/28170-4-planescape-torment-logo-free-download.png" />
+        <img
+          alt=""
+          src="https://freepngimg.com/download/planescape_torment/28170-4-planescape-torment-logo-free-download.png"
+        />
       </div>
       <div className={styles.headerMiddle}>
-       
         <div className={styles.loginBlock}>
           {props.isAuth ? (
             <div>

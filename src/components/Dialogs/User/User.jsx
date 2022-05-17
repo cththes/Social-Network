@@ -38,6 +38,7 @@ const User = (props) => {
       <img
         className={styles.avatar}
         src="https://avatars.githubusercontent.com/u/94492515?v=4"
+        alt=""
       />
       <AddMessageFormRedux onSubmit={addNewMessage} />
       <div className={styles.message_area}></div>

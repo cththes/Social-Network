@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { connect, Provider } from "react-redux";
 import { compose } from "redux";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import store from "./redux/redux-store";
 
 import { initializeApp } from "./redux/app-reducer";
 
@@ -49,6 +50,18 @@ const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
 });
 
-export default compose(
+let AppContainer = compose(
   withRouter,
   connect(mapStateToProps, { initializeApp }))(App)
+
+ const SocialNetworkApp = (props) => {
+    return(
+      <Router>
+      <Provider store={store}>
+        <AppContainer store={store} />
+      </Provider>
+    </Router>
+    )
+  }
+
+  export default SocialNetworkApp

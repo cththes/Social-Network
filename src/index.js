@@ -1,21 +1,14 @@
 import reportWebVitals from "./reportWebVitals";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import { BrowserRouter as Router } from "react-router-dom";
-import store from "./redux/redux-store";
-import { Provider } from "react-redux";
+import SocialNetworkApp from "./App";
 
-React.createElement("h1")
+React.createElement("h1");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Router>
-      <Provider store={store}>
-        <App store={store} />
-      </Provider>
-    </Router>
+    <SocialNetworkApp />
   </React.StrictMode>
 );
 
