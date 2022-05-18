@@ -1,6 +1,6 @@
-import React from "react";
+/*import React from "react";
 import styles from "./FormsControls.module.css";
-import { Field } from "redux-form";
+import { Field, Formik } from "formik";
 
 const FormControl = ({ meta: { touched, error }, children }) => {
   const hasError = touched && error;
@@ -39,13 +39,15 @@ export const сreateField = (
 ) => (
   <div>
     {" "}
-    <Field
-      component={component}
-      name={name}
-      validate={validators}
-      placeholder={placeholder}
-      {...props}
-    />
+    <Formik>
+      <Field
+        component={component}
+        name={name}
+        validate={validators}
+        placeholder={placeholder}
+        {...props}
+      />
+    </Formik>
     {text}
   </div>
-);
+);*/

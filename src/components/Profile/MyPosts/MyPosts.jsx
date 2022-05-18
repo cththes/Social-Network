@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import { Field, reduxForm } from "redux-form";
+import { Field, Form, Formik } from "formik";
+//import { Field, reduxForm } from "redux-form";
 import {
   maxLengthCreator,
   minLengthCreator,
@@ -11,23 +12,27 @@ import { Textarea } from "../../Common/FormsControls/FormsControls";
 
 const AddNewPostForm = (props) => {
   return (
-    <form onSubmit={props.handleSubmit} className={styles.post_area}>
-      <Field
-        placeholder={"Введите сообщение: "}
-        name="newPostText"
-        component={Textarea}
-        validate={[required, maxLengthCreator(10), minLengthCreator(1)]}
-      />
-      <div>
-        <button onClick={props.onAddPost}>Add Post</button>
-      </div>
-    </form>
+    <Formik
+      initialValues={{ email: "", password: "" }}
+     /* validate={[required, maxLengthCreator(10), minLengthCreator(1)]}*/
+    >
+      {({ isSubmitting }) => (
+        <Form onSubmit={props.handleSubmit} className={styles.post_area}>
+          <Field
+            placeholder={"Введите сообщение: "}
+            name="newPostText"
+            component={Textarea}
+            validate={[required, maxLengthCreator(10), minLengthCreator(1)]}
+          />
+
+          <div>
+            <button onClick={props.onAddPost}>Add Post</button>
+          </div>
+        </Form>
+      )}
+    </Formik>
   );
 };
-
-let AddNewPostFormRedux = reduxForm({ form: "ProfileAddNewPostForm" })(
-  AddNewPostForm
-);
 
 const MyPosts = React.memo((props) => {
   let state = props.state;
@@ -42,7 +47,7 @@ const MyPosts = React.memo((props) => {
   return (
     <div>
       My Posts:
-      <AddNewPostFormRedux onSubmit={addNewPost} />
+      <AddNewPostForm onSubmit={addNewPost} />
       <div className={styles.post_area}></div>
       <div>{postsElements}</div>
     </div>

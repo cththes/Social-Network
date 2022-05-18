@@ -1,7 +1,7 @@
 import React, { Component, Suspense } from "react";
 import { connect, Provider } from "react-redux";
 import { compose } from "redux";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import store from "./redux/redux-store";
 
 import { initializeApp } from "./redux/app-reducer";

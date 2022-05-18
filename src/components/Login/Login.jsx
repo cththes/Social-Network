@@ -1,5 +1,6 @@
 import React from "react";
-import { reduxForm } from "redux-form";
+import { Form, Formik } from "formik";
+//import { reduxForm } from "redux-form";
 import { Input, сreateField } from "../Common/FormsControls/FormsControls";
 import { required } from "./../../utils/validators/index";
 import { connect } from "react-redux";
@@ -9,28 +10,30 @@ import styles from "./../Common/FormsControls/FormsControls.module.css";
 
 const LoginForm = ({ handleSubmit, error }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      {сreateField("Email", "email", [required], Input)}
-      {сreateField("Password", "password", [required], Input, {
-        type: "password",
-      })}
-      {сreateField(
-        null,
-        "rememberMe",
-        [required],
-        Input,
-        { type: "checkbox" },
-        "rememeber me"
+    <Formik initialValues={{ email: "", password: "" }}>
+      {({ isSubmitting }) => (
+        <Form onSubmit={handleSubmit}>
+          {сreateField("Email", "email", [required], Input)}
+          {сreateField("Password", "password", [required], Input, {
+            type: "password",
+          })}
+          {сreateField(
+            null,
+            "rememberMe",
+            [required],
+            Input,
+            { type: "checkbox" },
+            "rememeber me"
+          )}
+          {error && <div className={styles.formSummaryError}>{error}</div>}
+          <div>
+            <button>Login</button>
+          </div>
+        </Form>
       )}
-      {error && <div className={styles.formSummaryError}>{error}</div>}
-      <div>
-        <button>Login</button>
-      </div>
-    </form>
+    </Formik>
   );
 };
-
-let LoginFormRedux = reduxForm({ form: "LoginForm" })(LoginForm);
 
 const Login = (props) => {
   const onSubmit = (formData) => {
@@ -43,7 +46,7 @@ const Login = (props) => {
     return (
       <div>
         <h1>LOGIN</h1>
-        <LoginFormRedux onSubmit={onSubmit} />
+        <LoginForm onSubmit={onSubmit} />
       </div>
     );
 };
