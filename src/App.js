@@ -25,10 +25,13 @@ const ProfileContainer = React.lazy(() =>
 
 class App extends Component {
   componentDidMount() {
-    this.props.initializeApp();
+      this.props.initializeApp();
   }
+
   render() {
-    if (!this.props.initialized) return <Preloader />;
+      if (!this.props.initialized) {
+          return <Preloader />
+      }
     return (
       <div className="app-wrapper">
         <HeaderContainer />
@@ -53,8 +56,8 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  initialized: state.app.initialized,
-});
+  initialized: state.app.initialized
+})
 
 let AppContainer = compose(
   withRouter,
@@ -65,7 +68,7 @@ const SocialNetworkApp = (props) => {
   return (
     <Router>
       <Provider store={store}>
-        <AppContainer store={store} />
+        <AppContainer/>
       </Provider>
     </Router>
   );

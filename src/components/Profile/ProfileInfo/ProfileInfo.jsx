@@ -4,27 +4,41 @@ import twitterIcon from "../../../assets/images/twitter_icon.png";
 import fbIcon from "../../../assets/images/fb_icon.png";
 import instagramIcon from "../../../assets/images/Instagram_icon.png";
 import vkIcon from "../../../assets/images/vk_icon.png";
+import userPhoto from "../../../assets/images/user.jpg";
 import Preloader from "./../../Common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
-const ProfileInfo = (props) => {
-  if (!props.profile) {
+const ProfileInfo = ({
+  profile,
+  status,
+  updateStatus,
+  isOwner,
+  savePhoto,
+}) => {
+  if (!profile) {
     return <Preloader />;
   }
 
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length[0]) {
+      savePhoto(e.target.files[0]);
+    }
+  };
   return (
     <div className={styles.profileInfo}>
-      <h1>{props.profile.fullName}</h1>
-      <ProfileStatusWithHooks
-        status={props.status}
-        updateStatus={props.updateStatus}
+      <h1>{profile.fullName}</h1>
+      <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+      <img
+        src={profile.photos.large || userPhoto}
+        alt=""
+        className={styles.userPhoto}
       />
-      <img src={props.profile.photos.large} alt="" />
+      {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
       <div>
-        {props.profile.contacts.facebook !== null && (
+        {profile.contacts.facebook !== null && (
           <span className={styles.item}>
             <a
-              href={props.profile.contacts.facebook}
+              href={profile.contacts.facebook}
               target="_blank"
               rel="noreferrer"
             >
@@ -32,39 +46,31 @@ const ProfileInfo = (props) => {
             </a>{" "}
           </span>
         )}
-        {props.profile.contacts.vk !== null && (
+        {profile.contacts.vk !== null && (
           <span className={styles.item}>
-            <a
-              href={props.profile.contacts.vk}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={profile.contacts.vk} target="_blank" rel="noreferrer">
               <img src={vkIcon} alt="" className={styles.icon} />
             </a>
           </span>
         )}
-        {props.profile.contacts.twitter !== null && (
+        {profile.contacts.twitter !== null && (
           <span className={styles.item}>
             {" "}
-            <a
-              href={props.profile.contacts.twitter}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={profile.contacts.twitter} target="_blank" rel="noreferrer">
               {" "}
               <img
                 src={twitterIcon}
-                alt={props.profile.contacts.twitter}
+                alt={profile.contacts.twitter}
                 className={styles.icon}
               />
             </a>
           </span>
         )}
 
-        {props.profile.contacts.instagram !== null && (
+        {profile.contacts.instagram !== null && (
           <span className={styles.item}>
             <a
-              href={props.profile.contacts.instagram}
+              href={profile.contacts.instagram}
               target="_blank"
               rel="noreferrer"
             >
