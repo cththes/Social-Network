@@ -41,7 +41,6 @@ let ProfileContainer = (props) => {
   useEffect(() => {
     refreshProfile(props);
   });
-  debugger
   return (
     <div>
       <Profile

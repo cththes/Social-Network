@@ -1,0 +1,29 @@
+
+.login.error input,
+.login.error textarea {
+  border: solid red 1px;
+}
+.login.error span {
+  color: red;
+}
+
+.formSummaryError {
+  color: red;
+  width:250px;
+  margin:0;
+  font-family:verdana;
+  font-size:12px;
+}
+
+h2 {
+  margin:0;
+}
+
+input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+button {
+  margin-top:5px;
+  width: 60px;
+}

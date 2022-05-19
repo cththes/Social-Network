@@ -12,7 +12,7 @@ import { withRouter } from "./components/Profile/ProfileContainer";
 
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import Login from "./components/Login/Login";
+import Login from "./components/Login/Login"
 import Music from "./components/Music/Music";
 import Preloader from "./components/Common/Preloader/Preloader";
 
