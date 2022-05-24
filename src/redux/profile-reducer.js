@@ -65,9 +65,9 @@ export const savePhotoSuccess = (photos) => ({
 });
 
 export const getUserProfile = (userId) => async (dispatch) => {
-  let response = await profileAPI.getProfile(userId);
+  const response = await profileAPI.getProfile(userId);
   dispatch(setUserProfile(response.data));
-};
+}
 
 export const requestStatus = (userId) => async (dispatch) => {
   let response = await profileAPI.getStatus(userId);

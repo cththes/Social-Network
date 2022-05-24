@@ -3,12 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Navigate } from "react-router-dom";
 import { connect } from "react-redux";
-import { login, logout, loginTest } from "../../redux/auth-reducer";
-import {
-  required,
-  maxLengthCreator,
-  minLengthCreator,
-} from "../../utils/validators";
+import { login, logout} from "../../redux/auth-reducer";
 import styles from "./Login.module.css";
 
 const LoginForm = ({ error, login }) => {

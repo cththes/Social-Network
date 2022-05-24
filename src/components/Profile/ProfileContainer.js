@@ -25,6 +25,7 @@ export function withRouter(Component) {
   }
   return ComponentWithRouter;
 }
+
 const refreshProfile = async (props) =>  {
   let userId = props.params.userId;
   if (!userId) {

@@ -8,19 +8,13 @@ import userPhoto from "../../../assets/images/user.jpg";
 import Preloader from "./../../Common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
-const ProfileInfo = ({
-  profile,
-  status,
-  updateStatus,
-  isOwner,
-  savePhoto,
-}) => {
+const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
   if (!profile) {
     return <Preloader />;
   }
 
   const onMainPhotoSelected = (e) => {
-    if (e.target.files.length[0]) {
+    if (e.target.files.length) {
       savePhoto(e.target.files[0]);
     }
   };
@@ -33,7 +27,12 @@ const ProfileInfo = ({
         alt=""
         className={styles.userPhoto}
       />
-      {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
+     <div> {isOwner && (
+        <input
+          type={"file"}
+          onChange={onMainPhotoSelected}
+        />
+      )}</div>
       <div>
         {profile.contacts.facebook !== null && (
           <span className={styles.item}>
