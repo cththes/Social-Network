@@ -2,8 +2,7 @@ import React from "react";
 import styles from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
 
-const setActive = ({ isActive }) =>
-  isActive ? styles.activeLink : styles.Link;
+const setActive = ({ isActive }) => (isActive ? styles.activeLink : styles.Link);
 
 const Navbar = () => {
   return (

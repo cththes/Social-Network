@@ -10,11 +10,11 @@ import Track from "./Track/Track";
 const Music = () => {
   return (
     <div>
-      <Track track={track1} name="Mark Morgan - Khans Of The New California"/>
-      <Track track={track2} name="Lorn - PERFEKT DARK"/>
-      <Track track={track3} name="BLVCK CEILING - End of Time"/>
-      <Track track={track4} name="Burial - Pirates"/>
-      <Track track={track5} name="Natalie Merchant - San Andreas Fault"/>
+      <Track track={track1} name="Mark Morgan - Khans Of The New California" />
+      <Track track={track2} name="Lorn - PERFEKT DARK" />
+      <Track track={track3} name="BLVCK CEILING - End of Time" />
+      <Track track={track4} name="Burial - Pirates" />
+      <Track track={track5} name="Natalie Merchant - San Andreas Fault" />
     </div>
   );
 };

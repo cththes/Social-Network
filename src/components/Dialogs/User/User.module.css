@@ -14,11 +14,11 @@
   grid-area: a;
 }
 
-.message_area {
+.form_message {
   margin: 5px;
 }
 
-.message_area textarea {
+.form_message textarea {
   height: 35px;
   background-color: #777777;
   color: white;
@@ -26,9 +26,14 @@
   border: none;
   resize: none;
 }
-.message_area button {
+.form_message button {
   background-color: #777777;
   border-radius: 3px;
   margin-left: 25%;
   border: none;
 }
+
+.form_message button:active {
+  background-color: white;
+}
+

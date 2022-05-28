@@ -9,8 +9,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default compose(
-  connect(mapStateToProps),
-  withAuthNavigate
-)(Dialogs);
-
+export default compose(connect(mapStateToProps), withAuthNavigate)(Dialogs);

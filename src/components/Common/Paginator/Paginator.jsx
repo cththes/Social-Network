@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import styles from "./Paginator.module.css";
 import { NavLink } from "react-router-dom";
 
-let Paginator = ({
-  totalUsersCount,
-  pageSize,
-  currentPage,
-  onPageChanged,
-  portionSize = 10,
-}) => {
+let Paginator = ({ totalUsersCount, pageSize, currentPage, onPageChanged, portionSize = 10 }) => {
   let pagesCount = Math.ceil(totalUsersCount / pageSize);
 
   let pages = [];
@@ -21,8 +15,7 @@ let Paginator = ({
   let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
   let rightPortionPageNumber = portionNumber * portionSize;
 
-  const setActive = ({ isActive }) =>
-    isActive ? styles.activeLink : styles.Link;
+  const setActive = ({ isActive }) => (isActive ? styles.activeLink : styles.Link);
   return (
     <div className={styles.paginator}>
       {portionNumber > 1 && (
@@ -31,13 +24,11 @@ let Paginator = ({
             setPortionNumber(portionNumber - 1);
           }}
         >
-          PREV 
+          PREV
         </button>
       )}
       {pages
-        .filter(
-          (p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber
-        )
+        .filter((p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
         .map((page) => {
           return (
             <NavLink to={"/users/" + page} className={setActive}>

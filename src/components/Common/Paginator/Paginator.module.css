@@ -1,7 +1,7 @@
 .userPhoto {
-   width: 60px;
-   height: 60px;
-   border-radius: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
 }
 
 .status {
@@ -9,22 +9,22 @@
 }
 
 .user {
-   padding:3px;
-   background-color: #2b2a33;
-   margin-bottom:8px;
+  padding: 3px;
+  background-color: #2b2a33;
+  margin-bottom: 8px;
 }
 
 .usersNav {
-   background-color: #2b2a33;
-   margin-bottom: 8px;
-   padding:2px;
+  background-color: #2b2a33;
+  margin-bottom: 8px;
+  padding: 2px;
 }
 
-.Link{
-   color: #777777;
-   text-decoration: none;
- }
- .activeLink{
-   color: white;
-   text-decoration: none;
- }
+.Link {
+  color: #777777;
+  text-decoration: none;
+}
+.activeLink {
+  color: white;
+  text-decoration: none;
+}

@@ -3,8 +3,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Navigate } from "react-router-dom";
 import { connect } from "react-redux";
-import { login, logout} from "../../redux/auth-reducer";
+import { login, logout } from "../../redux/auth-reducer";
 import styles from "./Login.module.css";
+import { Input } from "../Common/FormControls/FormControls";
 
 const LoginForm = ({ error, login }) => {
   const formik = useFormik({
@@ -19,10 +20,7 @@ const LoginForm = ({ error, login }) => {
         .min(3, "Must be 3 or more")
         .required("Required")
         .email("Invalid email adress"),
-      password: Yup.string()
-        .max(25, "Must be 25 or less")
-        .min(3, "Must be 3 or more")
-        .required("Required"),
+      password: Yup.string().max(25, "Must be 25 or less").min(3, "Must be 3 or more").required("Required"),
       rememberMe: Yup.bool().oneOf([true], "Field must be checked"),
     }),
     onSubmit: (values) => {
@@ -30,52 +28,20 @@ const LoginForm = ({ error, login }) => {
     },
   });
 
-  console.log(formik.errors);
   return (
     <form onSubmit={formik.handleSubmit}>
-      <div>
-        <input
-          id="email"
-          name="email"
-          type="text"
-          placeholder={"Email"}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-        />
-        {formik.errors.email ? (
-          <p className={styles.formSummaryError}>
-            {formik.touched.email && formik.errors.email}
-          </p>
-        ) : null}
-      </div>
-      <div>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          placeholder={"Password"}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
-        />
-        {formik.touched.password && formik.errors.password ? (
-          <p className={styles.formSummaryError}>{formik.errors.password}</p>
-        ) : null}
-      </div>{" "}
-      <div>
-        <input
-          id="checkbox"
-          name="rememberMe"
-          type="checkbox"
-          onChange={formik.handleChange}
-          value={formik.values.rememberMe}
-        />
-        <label htmlFor="checkbox">Remember Me</label>
-        {formik.errors.rememberMe ? (
-          <p className={styles.formSummaryError}>{formik.errors.rememberMe}</p>
-        ) : null}
-      </div>
+      {Input("email", "text", "Email", formik.values.email, formik.handleChange, formik.handleBlur)}
+      {formik.errors.email ? (
+        <p className={styles.formSummaryError}>{formik.touched.email && formik.errors.email}</p>
+      ) : null}
+      {Input("password", "password", "Password", formik.values.password, formik.handleChange, formik.handleBlur)}
+      {formik.touched.password && formik.errors.password ? (
+        <p className={styles.formSummaryError}>{formik.errors.password}</p>
+      ) : null}
+      {Input("rememberMe", "checkbox", [], formik.values.rememberMe, formik.handleChange)}
+      <label htmlFor="checkbox">Remember Me</label>
+      {formik.errors.rememberMe ? <p className={styles.formSummaryError}>{formik.errors.rememberMe}</p> : null}
+
       <button type="submit">Login</button>
       {error && <div>{error}</div>}
     </form>

@@ -1,54 +1,42 @@
 import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import { Field, Form, Formik } from "formik";
-//import { Field, reduxForm } from "redux-form";
-import {
-  maxLengthCreator,
-  minLengthCreator,
-  required,
-} from "./../../../utils/validators/index";
-import { Textarea } from "../../Common/FormsControls/FormsControls";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { Input } from "../../Common/FormControls/FormControls";
 
-const AddNewPostForm = (props) => {
+const AddNewPostForm = ({ error, addPost }) => {
+  const formik = useFormik({
+    initialValues: {
+      post: "",
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().max(100, "Must be 100 or less").min(3, "Must be 3 or more"),
+    }),
+    onSubmit: (values) => {
+      addPost(values.post);
+    },
+  });
   return (
-    <Formik
-      initialValues={{ email: "", password: "" }}
-     /* validate={[required, maxLengthCreator(10), minLengthCreator(1)]}*/
-    >
-      {({ isSubmitting }) => (
-        <Form onSubmit={props.handleSubmit} className={styles.post_area}>
-          <Field
-            placeholder={"Введите сообщение: "}
-            name="newPostText"
-            component={Textarea}
-            validate={[required, maxLengthCreator(10), minLengthCreator(1)]}
-          />
-
-          <div>
-            <button onClick={props.onAddPost}>Add Post</button>
-          </div>
-        </Form>
-      )}
-    </Formik>
+    <form onSubmit={formik.handleSubmit} className={styles.form_post}>
+      {Input("post", "text", "Введите сообщение:", formik.values.post, formik.handleChange)}
+      <div>
+        <button type="submit">Add Post</button>
+      </div>
+      {error && <div>{error}</div>}
+    </form>
   );
 };
 
 const MyPosts = React.memo((props) => {
   let state = props.state;
 
-  let postsElements = [...state.posts]
-    .reverse()
-    .map((p) => <Post id={p.id} message={p.message} />);
-  let addNewPost = (values) => {
-    props.addPost(values.newPostText);
-  };
-
+  let postsElements = [...state.posts].reverse().map((p) => <Post id={p.id} message={p.message} />);
   return (
     <div>
       My Posts:
-      <AddNewPostForm onSubmit={addNewPost} />
-      <div className={styles.post_area}></div>
+      <AddNewPostForm {...props} />
+      <div></div>
       <div>{postsElements}</div>
     </div>
   );
