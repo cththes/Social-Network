@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./ProfileInfo.module.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Input } from "../../Common/FormControls/FormControls";
@@ -25,7 +26,7 @@ const ProfileDataForm = ({ saveProfileSubmit, contacts, error }) => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} className={styles.editInfo}>
       <div>
         <div>
           <button type="submit">save</button>

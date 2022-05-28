@@ -14,11 +14,11 @@
   grid-area: a;
 }
 
-.form_message {
+.message {
   margin: 5px;
 }
 
-.form_message textarea {
+.form_message input {
   height: 35px;
   background-color: #777777;
   color: white;
@@ -29,7 +29,7 @@
 .form_message button {
   background-color: #777777;
   border-radius: 3px;
-  margin-left: 25%;
+  margin-left: 40px;
   border: none;
 }
 
@@ -37,3 +37,10 @@
   background-color: white;
 }
 
+.formSummaryError {
+  color: red;
+  width: 250px;
+  margin: 0;
+  font-family: verdana;
+  font-size: 12px;
+}

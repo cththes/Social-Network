@@ -1,10 +1,9 @@
-.form_post textarea {
+.form_post input {
   height: 35px;
   background-color: #777777;
   color: white;
   border-radius: 3px;
   border: none;
-  resize: none;
 }
 .form_post button {
   background-color: #777777;
@@ -16,4 +15,12 @@
 
 .form_post button:active {
   background-color: white;
+}
+
+.formSummaryError {
+  color: red;
+  width: 250px;
+  margin: 0;
+  font-family: verdana;
+  font-size: 12px;
 }

@@ -7,12 +7,13 @@ import { login, logout } from "../../redux/auth-reducer";
 import styles from "./Login.module.css";
 import { Input } from "../Common/FormControls/FormControls";
 
-const LoginForm = ({ error, login }) => {
+const LoginForm = ({ login, captchaUrl }) => {
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
       rememberMe: "",
+      captcha: "",
     },
     validationSchema: Yup.object({
       email: Yup.string()
@@ -24,7 +25,7 @@ const LoginForm = ({ error, login }) => {
       rememberMe: Yup.bool().oneOf([true], "Field must be checked"),
     }),
     onSubmit: (values) => {
-      login(values.email, values.password, values.rememberMe);
+      login(values.email, values.password, values.rememberMe, values.captcha);
     },
   });
 
@@ -42,8 +43,10 @@ const LoginForm = ({ error, login }) => {
       <label htmlFor="checkbox">Remember Me</label>
       {formik.errors.rememberMe ? <p className={styles.formSummaryError}>{formik.errors.rememberMe}</p> : null}
 
+      {captchaUrl && <img src={captchaUrl} alt="" />}
+      {captchaUrl && Input("captcha", "text", "captcha", formik.values.captcha, formik.handleChange)}
+
       <button type="submit">Login</button>
-      {error && <div>{error}</div>}
     </form>
   );
 };
@@ -55,12 +58,13 @@ const Login = (props) => {
     return (
       <div>
         <h2>LOGIN</h2>
-        <LoginForm {...props} />
+        <LoginForm {...props} captchaUrl={props.captchaUrl} />
       </div>
     );
 };
 
 const mapStateToProps = (state) => ({
+  captchaUrl: state.auth.captchaUrl,
   isAuth: state.auth.isAuth,
 });
 

@@ -11,7 +11,7 @@ const AddNewPostForm = ({ error, addPost }) => {
       post: "",
     },
     validationSchema: Yup.object({
-      email: Yup.string().max(100, "Must be 100 or less").min(3, "Must be 3 or more"),
+      post: Yup.string().max(100, "Must be 100 or less").min(3, "Must be 3 or more"),
     }),
     onSubmit: (values) => {
       addPost(values.post);
@@ -20,6 +20,9 @@ const AddNewPostForm = ({ error, addPost }) => {
   return (
     <form onSubmit={formik.handleSubmit} className={styles.form_post}>
       {Input("post", "text", "Введите сообщение:", formik.values.post, formik.handleChange)}
+      {formik.errors.post ? (
+        <p className={styles.formSummaryError}>{formik.touched.post && formik.errors.post}</p>
+      ) : null}
       <div>
         <button type="submit">Add Post</button>
       </div>
