@@ -1,20 +1,21 @@
 .dialogs {
   color: #777777;
   display: grid;
+  grid-template-areas: "dialogs usermessage";
+  grid-template-columns: 1fr 5fr;
   width: 100%;
   margin: 0 auto;
-  grid-template-areas: "di ui om";
-  grid-template-columns: 130px 280px 25%;
   grid-gap: 10px;
 }
 
 .dialogsItems {
-  grid-area: di;
-  background-color:#2b2a33d7;
-  height:min-content;
+  background-color: white;
+  height: min-content;
+  font-size: 20px;
+  min-width: 200px;
 }
 
 .dialog {
-  padding-left:3px;
+  padding-left: 3px;
+  grid-area: usermessage;
 }
-

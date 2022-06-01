@@ -1,5 +1,5 @@
 .item {
-  grid-area: ui;
+  grid-area: "message";
   display: grid;
   width: 100%;
   margin: 0 auto;
@@ -18,19 +18,8 @@
   margin: 5px;
 }
 
-.form_message input {
-  height: 35px;
-  background-color: #777777;
-  color: white;
-  border-radius: 3px;
-  border: none;
-  resize: none;
-}
 .form_message button {
-  background-color: #777777;
-  border-radius: 3px;
   margin-left: 40px;
-  border: none;
 }
 
 .form_message button:active {

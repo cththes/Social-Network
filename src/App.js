@@ -1,7 +1,7 @@
 import React, { Component, Suspense } from "react";
 import { connect, Provider } from "react-redux";
 import { compose } from "redux";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import store from "./redux/redux-store";
 
 import { initializeApp } from "./redux/app-reducer";
@@ -12,43 +12,41 @@ import { withRouter } from "./components/Profile/ProfileContainer";
 
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import Login from "./components/Login/Login"
+import Login from "./components/Login/Login";
 import Music from "./components/Music/Music";
 import Preloader from "./components/Common/Preloader/Preloader";
 
-const DialogsContainer = React.lazy(() =>
-  import("./components/Dialogs/DialogsContainer")
-);
-const ProfileContainer = React.lazy(() =>
-  import("./components/Profile/ProfileContainer")
-);
+const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
+const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
 
 class App extends Component {
   componentDidMount() {
-      this.props.initializeApp();
+    this.props.initializeApp();
   }
 
   render() {
-      if (!this.props.initialized) {
-          return <Preloader />
-      }
+    if (!this.props.initialized) {
+      return <Preloader />;
+    }
     return (
-      <div className="app-wrapper">
+      <div className="app">
         <HeaderContainer />
-        <Navbar />
-        <div className="app-wrapper-content">
-          <Suspense fallback={<Preloader />}>
-            <Routes>
-              <Route element={<ProfileContainer />} path="profile" />
-              <Route element={<Login />} path="login" />
-              <Route element={<ProfileContainer />} path="profile/:userId" />
-              <Route element={<DialogsContainer />} path="dialogs/*" />
-              <Route element={<UsersContainer />} path="users/*" />
-              <Route path="news" />
-              <Route element={<Music />} path="music" />
-              <Route path="settings" />
-            </Routes>
-          </Suspense>
+        <div className="app-wrapper">
+          <Navbar />
+          <div className="app-wrapper-content">
+            <Suspense fallback={<Preloader />}>
+              <Routes>
+                <Route element={<ProfileContainer />} path="profile" />
+                <Route element={<Login />} path="login" />
+                <Route element={<ProfileContainer />} path="profile/:userId" />
+                <Route element={<DialogsContainer />} path="dialogs/*" />
+                <Route element={<UsersContainer />} path="users/*" />
+                <Route path="news" />
+                <Route element={<Music />} path="music" />
+                <Route path="settings" />
+              </Routes>
+            </Suspense>
+          </div>
         </div>
       </div>
     );
@@ -56,19 +54,16 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  initialized: state.app.initialized
-})
+  initialized: state.app.initialized,
+});
 
-let AppContainer = compose(
-  withRouter,
-  connect(mapStateToProps, { initializeApp })
-)(App);
+let AppContainer = compose(withRouter, connect(mapStateToProps, { initializeApp }))(App);
 
 const SocialNetworkApp = (props) => {
   return (
     <Router>
       <Provider store={store}>
-        <AppContainer/>
+        <AppContainer />
       </Provider>
     </Router>
   );

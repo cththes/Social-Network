@@ -2,6 +2,14 @@ import { connect } from "react-redux";
 import { addPost } from "../../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
 
+let MyPostsContainer = (props) => {
+  return (
+    <div>
+      <MyPosts {...props} />
+    </div>
+  );
+};
+
 let mapStateToProps = (state) => {
   return {
     state: state.profilePage,
@@ -16,6 +24,6 @@ let mapDispatchToProps = (dispatch) => {
   };
 };
 
-const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
+MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
 export default MyPostsContainer;

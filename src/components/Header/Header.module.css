@@ -1,27 +1,31 @@
 header {
-  grid-area: h;
-
-  display: grid;
-  grid-template-areas: "l m r";
-  grid-template-columns: 6fr 8fr 8fr;
-  background-color: #222226;
-  font-family: "Comic Sans MS";
+  background-color: #001529;
+  color: white;
+  height: 60px;
 }
 
-.headerLeft {
-  grid-area: l;
-  
-}
 .headerMiddle {
-  grid-area: m;
-}
-.headerRight {
-  grid-area: r;
+  max-width: 1200px;
 }
 
-header img {
-  width: 50px;
-  margin-left:10px;
+@media (max-width: 1200px) {
+  .headerMiddle {
+    max-width: 970px;
+  }
+}
+@media (max-width: 992px) {
+  .headerMiddle {
+    max-width: 750px;
+  }
+}
+@media (max-width: 767px) {
+  .headerMiddle {
+    max-width: 600px;
+  }
+}
+
+.logout {
+  grid-area: r;
 }
 
 .loginBlock {
@@ -33,13 +37,13 @@ header img {
 
 .loginBlock a {
   text-decoration: none;
-  color: #777777;
+  color: white;
 }
 .loginBlock a:active {
   text-decoration: none;
-  color: white;
+  color: #359eff;
 }
 
 .logoutBtn {
-  margin-left:10px;
+  margin-left: 10px;
 }

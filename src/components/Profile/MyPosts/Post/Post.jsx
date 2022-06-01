@@ -1,11 +1,17 @@
 import React from "react";
 import styles from "./Post.module.css";
-
-const Post = (props) => {
+import userPhoto from "../../../../assets/images/user.jpg";
+import { Link } from "react-router-dom";
+const Post = ({ profile, message }) => {
+  if (!profile) {
+    return null;
+  }
   return (
     <div className={styles.item}>
-      <img className={styles.avatar} src="https://avatars.githubusercontent.com/u/94492515?v=4" alt="" />
-      <span className={styles.post}>{props.message}</span>
+      <Link to="/profile">
+        <img src={profile.photos.large || userPhoto} alt="" className={styles.avatar} />
+      </Link>
+      <span className={styles.post}>{message}</span>
     </div>
   );
 };

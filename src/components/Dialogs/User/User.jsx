@@ -10,7 +10,7 @@ const AddMessageForm = ({ sendMessage }) => {
       message: "",
     },
     validationSchema: Yup.object({
-      message: Yup.string().max(100, "Must be 100 or less").min(3, "Must be 3 or more"),
+      message: Yup.string().max(100, "Must be 100 or less").min(3, "Must be 3 or more").required("Required"),
     }),
     onSubmit: (values) => {
       sendMessage(values.message);
@@ -34,7 +34,6 @@ const User = (props) => {
     <div className={styles.item}>
       <img className={styles.avatar} src="https://avatars.githubusercontent.com/u/94492515?v=4" alt="" />
       <AddMessageForm {...props} />
-      <div></div>
     </div>
   );
 };

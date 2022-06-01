@@ -29,21 +29,27 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
 
   return (
     <div className={styles.profileInfo}>
-      <h1>{profile.fullName}</h1>
-      <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
-      <img src={profile.photos.large || userPhoto} alt="" className={styles.userPhoto} />
-      <div> {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}</div>
-      {editMode ? (
-        <ProfileDataForm saveProfileSubmit={saveProfileSubmit} contacts={profile.contacts} />
-      ) : (
-        <ProfileData
-          goToEditMode={() => {
-            setEditMode(true);
-          }}
-          profile={profile}
-          isOwner={isOwner}
-        />
-      )}
+      <div>
+        <h1 className={styles.fullName}>{profile.fullName}</h1>
+        <img src={profile.photos.large || userPhoto} alt="" className={styles.userPhoto} />
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+      </div>
+      <div>
+        {isOwner && <input type={"file"} onChange={onMainPhotoSelected} className={styles.inputUploadAvatar} />}
+      </div>
+      <div className={styles.contacts}>
+        {editMode ? (
+          <ProfileDataForm saveProfileSubmit={saveProfileSubmit} contacts={profile.contacts} />
+        ) : (
+          <ProfileData
+            goToEditMode={() => {
+              setEditMode(true);
+            }}
+            profile={profile}
+            isOwner={isOwner}
+          />
+        )}
+      </div>
     </div>
   );
 };
@@ -53,42 +59,43 @@ const contactsAreNotEmpty = (value) => value !== "" && value !== null;
 const ProfileData = ({ profile, isOwner, goToEditMode }) => {
   return (
     <div>
-      <b>Contacts: </b>
+      <span className={styles.contacts}>Contacts</span>
+      <div>
+        {contactsAreNotEmpty(profile.contacts.facebook) && (
+          <span className={styles.item}>
+            <a href={profile.contacts.facebook} target="_blank" rel="noreferrer">
+              <img src={fbIcon} alt="" className={styles.icon} />
+            </a>
+          </span>
+        )}
+        {contactsAreNotEmpty(profile.contacts.vk) && (
+          <span className={styles.item}>
+            <a href={profile.contacts.vk} target="_blank" rel="noreferrer">
+              <img src={vkIcon} alt="" className={styles.icon} />
+            </a>
+          </span>
+        )}
+        {contactsAreNotEmpty(profile.contacts.twitter) && (
+          <span className={styles.item}>
+            <a href={profile.contacts.twitter} target="_blank" rel="noreferrer">
+              <img src={twitterIcon} alt={profile.contacts.twitter} className={styles.icon} />
+            </a>
+          </span>
+        )}
+        {contactsAreNotEmpty(profile.contacts.instagram) && (
+          <span className={styles.item}>
+            <a href={profile.contacts.instagram} target="_blank" rel="noreferrer">
+              <img src={instagramIcon} alt="" className={styles.icon} />
+            </a>
+          </span>
+        )}
+      </div>
       {isOwner && (
         <div>
-          <button onClick={goToEditMode}>Edit</button>
+          <button className={styles.editInfo} onClick={goToEditMode}>
+            Edit
+          </button>
         </div>
-      )}
-      {contactsAreNotEmpty(profile.contacts.facebook) && (
-        <span className={styles.item}>
-          <a href={profile.contacts.facebook} target="_blank" rel="noreferrer">
-            <img src={fbIcon} alt="" className={styles.icon} />
-          </a>{" "}
-        </span>
-      )}
-      {contactsAreNotEmpty(profile.contacts.vk) && (
-        <span className={styles.item}>
-          <a href={profile.contacts.vk} target="_blank" rel="noreferrer">
-            <img src={vkIcon} alt="" className={styles.icon} />
-          </a>
-        </span>
-      )}
-      {contactsAreNotEmpty(profile.contacts.twitter) && (
-        <span className={styles.item}>
-          {" "}
-          <a href={profile.contacts.twitter} target="_blank" rel="noreferrer">
-            {" "}
-            <img src={twitterIcon} alt={profile.contacts.twitter} className={styles.icon} />
-          </a>
-        </span>
-      )}
-      {contactsAreNotEmpty(profile.contacts.instagram) && (
-        <span className={styles.item}>
-          <a href={profile.contacts.instagram} target="_blank" rel="noreferrer">
-            {" "}
-            <img src={instagramIcon} alt="" className={styles.icon} />
-          </a>
-        </span>
       )}
     </div>
   );

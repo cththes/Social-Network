@@ -1,25 +1,79 @@
-
+body {
+  margin: 0;
+  background-color: #f0f2f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+}
 
 .app-wrapper {
-  background-color: #2b2a33;
-  color: #777777;
   display: grid;
-  width: 100%;
-  margin: 0 auto;
-  grid-template-areas:
-    "h h h"
-    "n c c";
-  grid-template-rows: 60px minmax(100vh, 100%);
-  grid-template-columns: 6fr 8fr 8fr;
-  grid-gap: 5px;
+  min-width: 100vh;
+  min-height: 100vh;
+  grid-template-areas: "n c";
+
+  grid-template-columns: 1fr 10fr;
+  grid-template-rows: 60px 1fr;
+  grid-gap: 10px;
+}
+
+@media (max-width: 1200px) {
+  .app-wrapper {
+    max-width: 970px;
+  }
+}
+@media (max-width: 992px) {
+  .app-wrapper {
+    max-width: 750px;
+  }
+}
+@media (max-width: 767px) {
+  .app-wrapper {
+    max-width: 600px;
+  }
+  img {
+    max-width: 80px;
+    max-height: 80px;
+  }
+}
+
+.app-wrapper a {
+  color: black;
+}
+
+.app-wrapper a:active {
+  color: #359eff;
 }
 
 .app-wrapper-content {
   grid-area: c;
-  background-color: #222226;
   padding: 8px;
 }
 
-body{
-  margin:0;
+input {
+  writing-mode: horizontal-tb !important;
+  font-family: monospace;
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  -webkit-rtl-ordering: logical;
+  resize: auto;
+  cursor: text;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  column-count: initial !important;
+  margin: 0em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+  padding: 2px;
 }

@@ -11,7 +11,7 @@ const AddNewPostForm = ({ error, addPost }) => {
       post: "",
     },
     validationSchema: Yup.object({
-      post: Yup.string().max(100, "Must be 100 or less").min(3, "Must be 3 or more"),
+      post: Yup.string().max(100, "Must be 100 or less").min(3, "Must be 3 or more").required("Required"),
     }),
     onSubmit: (values) => {
       addPost(values.post);
@@ -34,7 +34,9 @@ const AddNewPostForm = ({ error, addPost }) => {
 const MyPosts = React.memo((props) => {
   let state = props.state;
 
-  let postsElements = [...state.posts].reverse().map((p) => <Post id={p.id} message={p.message} />);
+  let postsElements = [...state.posts]
+    .reverse()
+    .map((p) => <Post id={p.id} message={p.message} profile={props.profile} />);
   return (
     <div>
       My Posts:

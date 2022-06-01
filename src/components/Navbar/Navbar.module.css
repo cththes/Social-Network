@@ -1,24 +1,29 @@
 .nav {
   grid-area: n;
-  background-color: #222226;
   padding: 16px;
   /*float: right;
   text-align: right;*/
-  font-family: "Comic Sans MS";
 }
 
 .textBlock {
-  width: 90px;
-  float: right
+  width: 200px;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .textBlock {
+    width: 100px;
+    text-align: left;
+  }
 }
 
 .Link {
-  grid-area: t;
   color: #777777;
   text-decoration: none;
-  display: block;
+  font-size: 20px;
 }
 .activeLink {
   color: white;
   text-decoration: none;
+  font-size: 20px;
 }
