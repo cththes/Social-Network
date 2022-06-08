@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Social-Network/static/css/main.d660c167.chunk.css",
-    "main.js": "/Social-Network/static/js/main.ccf39a7f.chunk.js",
-    "main.js.map": "/Social-Network/static/js/main.ccf39a7f.chunk.js.map",
-    "runtime-main.js": "/Social-Network/static/js/runtime-main.2b35e96a.js",
-    "runtime-main.js.map": "/Social-Network/static/js/runtime-main.2b35e96a.js.map",
+    "main.css": "/Social-Network/static/css/main.84d78dc5.chunk.css",
+    "main.js": "/Social-Network/static/js/main.c423ca79.chunk.js",
+    "main.js.map": "/Social-Network/static/js/main.c423ca79.chunk.js.map",
+    "runtime-main.js": "/Social-Network/static/js/runtime-main.41e0504d.js",
+    "runtime-main.js.map": "/Social-Network/static/js/runtime-main.41e0504d.js.map",
     "static/js/2.3818d114.chunk.js": "/Social-Network/static/js/2.3818d114.chunk.js",
     "static/js/2.3818d114.chunk.js.map": "/Social-Network/static/js/2.3818d114.chunk.js.map",
-    "static/css/3.6cea454c.chunk.css": "/Social-Network/static/css/3.6cea454c.chunk.css",
+    "static/css/3.2a8c2ab4.chunk.css": "/Social-Network/static/css/3.2a8c2ab4.chunk.css",
     "static/js/3.54a5abb8.chunk.js": "/Social-Network/static/js/3.54a5abb8.chunk.js",
     "static/js/3.54a5abb8.chunk.js.map": "/Social-Network/static/js/3.54a5abb8.chunk.js.map",
     "static/js/4.3df7de00.chunk.js": "/Social-Network/static/js/4.3df7de00.chunk.js",
     "static/js/4.3df7de00.chunk.js.map": "/Social-Network/static/js/4.3df7de00.chunk.js.map",
     "index.html": "/Social-Network/index.html",
-    "static/css/3.6cea454c.chunk.css.map": "/Social-Network/static/css/3.6cea454c.chunk.css.map",
-    "static/css/main.d660c167.chunk.css.map": "/Social-Network/static/css/main.d660c167.chunk.css.map",
+    "static/css/3.2a8c2ab4.chunk.css.map": "/Social-Network/static/css/3.2a8c2ab4.chunk.css.map",
+    "static/css/main.84d78dc5.chunk.css.map": "/Social-Network/static/css/main.84d78dc5.chunk.css.map",
     "static/js/2.3818d114.chunk.js.LICENSE.txt": "/Social-Network/static/js/2.3818d114.chunk.js.LICENSE.txt",
     "static/media/BLVCK CEILING - End of Time.589cdfc0.mp3": "/Social-Network/static/media/BLVCK CEILING - End of Time.589cdfc0.mp3",
     "static/media/Burial - Pirates.f5a849bf.mp3": "/Social-Network/static/media/Burial - Pirates.f5a849bf.mp3",
@@ -26,9 +26,9 @@
     "static/media/user.jpg": "/Social-Network/static/media/user.191fe8f3.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.2b35e96a.js",
+    "static/js/runtime-main.41e0504d.js",
     "static/js/2.3818d114.chunk.js",
-    "static/css/main.d660c167.chunk.css",
-    "static/js/main.ccf39a7f.chunk.js"
+    "static/css/main.84d78dc5.chunk.css",
+    "static/js/main.c423ca79.chunk.js"
   ]
 }
