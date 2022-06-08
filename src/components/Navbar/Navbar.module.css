@@ -6,13 +6,14 @@
 }
 
 .textBlock {
-  width: 200px;
   text-align: center;
 }
 
 @media (max-width: 767px) {
-  .textBlock {
+  .nav {
     width: 100px;
+  }
+  .textBlock {
     text-align: left;
   }
 }

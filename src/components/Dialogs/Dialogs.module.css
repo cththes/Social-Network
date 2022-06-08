@@ -3,7 +3,7 @@
   display: grid;
   grid-template-areas: "dialogs usermessage";
   grid-template-columns: 1fr 5fr;
-  width: 100%;
+  /*width: 100%;*/
   margin: 0 auto;
   grid-gap: 10px;
 }
@@ -12,10 +12,20 @@
   background-color: white;
   height: min-content;
   font-size: 20px;
-  min-width: 200px;
+  min-width: 214px;
+  margin-bottom: 10px;
 }
 
 .dialog {
   padding-left: 3px;
   grid-area: usermessage;
+}
+
+@media (max-width: 767px) {
+  .dialogs {
+    display: block;
+  }
+  .dialogsItems {
+    width: 214px;
+  }
 }

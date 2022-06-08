@@ -20,9 +20,22 @@ h1 {
   grid-template-columns: 300px;
 }
 
+@media (max-width: 767px) {
+  .app-wrapper {
+    grid-template-columns: 100px 1fr;
+    max-width: none;
+  }
+  .profileInfo {
+    display: block;
+  }
+  .contacts {
+    padding-bottom: 45px;
+  }
+}
+
 .contacts {
   grid-area: contacts;
-  padding-top: 50px;
+  padding-top: 45px;
   font-size: 25px;
 }
 

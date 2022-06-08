@@ -7,11 +7,8 @@ body {
 
 .app-wrapper {
   display: grid;
-  min-width: 100vh;
-  min-height: 100vh;
   grid-template-areas: "n c";
-
-  grid-template-columns: 1fr 10fr;
+  grid-template-columns: 200px 1fr;
   grid-template-rows: 60px 1fr;
   grid-gap: 10px;
 }
@@ -23,16 +20,13 @@ body {
 }
 @media (max-width: 992px) {
   .app-wrapper {
-    max-width: 750px;
+    max-width: 753px;
   }
 }
 @media (max-width: 767px) {
   .app-wrapper {
-    max-width: 600px;
-  }
-  img {
-    max-width: 80px;
-    max-height: 80px;
+    grid-template-columns: 100px 1fr;
+    max-width: none;
   }
 }
 
@@ -45,8 +39,8 @@ body {
 }
 
 .app-wrapper-content {
-  grid-area: c;
   padding: 8px;
+  max-width: 1200px;
 }
 
 input {

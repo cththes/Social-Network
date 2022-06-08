@@ -15,6 +15,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Login from "./components/Login/Login";
 import Music from "./components/Music/Music";
 import Preloader from "./components/Common/Preloader/Preloader";
+import Settings from "./components/Settings/Settings";
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
 const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
@@ -25,9 +26,9 @@ class App extends Component {
   }
 
   render() {
-    if (!this.props.initialized) {
+    /*if (!this.props.initialized) {
       return <Preloader />;
-    }
+    }*/
     return (
       <div className="app">
         <HeaderContainer />
@@ -40,10 +41,10 @@ class App extends Component {
                 <Route element={<Login />} path="login" />
                 <Route element={<ProfileContainer />} path="profile/:userId" />
                 <Route element={<DialogsContainer />} path="dialogs/*" />
-                <Route element={<UsersContainer />} path="users/*" />
                 <Route path="news" />
                 <Route element={<Music />} path="music" />
-                <Route path="settings" />
+                <Route element={<Settings />} path="settings" />
+                <Route element={<UsersContainer />} path="users/*" />
               </Routes>
             </Suspense>
           </div>

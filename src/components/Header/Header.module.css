@@ -15,12 +15,12 @@ header {
 }
 @media (max-width: 992px) {
   .headerMiddle {
-    max-width: 750px;
+    max-width: 753px;
   }
 }
 @media (max-width: 767px) {
   .headerMiddle {
-    max-width: 600px;
+    max-width: none;
   }
 }
 
