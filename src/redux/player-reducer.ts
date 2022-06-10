@@ -4,7 +4,7 @@ let initialState = {
   url: 0,
 };
 
-const playerReducer = (state = initialState, action) => {
+const playerReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case PLAY_MUSIC:
       return {
@@ -16,7 +16,7 @@ const playerReducer = (state = initialState, action) => {
   }
 };
 
-export const playMusic = (url) => ({
+export const playMusic = (url: any) => ({
   type: PLAY_MUSIC,
   url,
 });
