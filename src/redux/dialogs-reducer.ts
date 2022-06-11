@@ -31,13 +31,16 @@ let initialState = {
 const dialogsReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case SEND_MESSAGE:
-      let text = action.newMessageText;
-      if (text !== "") {
+      {
+        let text = action.newMessageText;
+
         return {
           ...state,
           messages: [...state.messages, { id: 2, message: text }],
-        };
-      } else return state;
+          newMessageText: ""
+        }
+      }
+
     default:
       return state;
   }

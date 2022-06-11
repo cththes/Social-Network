@@ -8,7 +8,6 @@ import { initializeApp } from "./redux/app-reducer";
 
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import { withRouter } from "./components/Profile/ProfileContainer";
 
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
@@ -16,6 +15,7 @@ import Login from "./components/Login/Login";
 import Music from "./components/Music/Music";
 import Preloader from "./components/Common/Preloader/Preloader";
 import Settings from "./components/Settings/Settings";
+import { getProfile } from "./redux/profile-selector";
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
 const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
@@ -26,9 +26,6 @@ class App extends Component {
   }
 
   render() {
-    /*if (!this.props.initialized) {
-      return <Preloader />;
-    }*/
     return (
       <div className="app">
         <HeaderContainer />
@@ -37,10 +34,10 @@ class App extends Component {
           <div className="app-wrapper-content">
             <Suspense fallback={<Preloader />}>
               <Routes>
-                <Route element={<ProfileContainer />} path="profile" />
+                <Route element={<ProfileContainer profile={this.props.profile} />} path="profile" />
                 <Route element={<Login />} path="login" />
-                <Route element={<ProfileContainer />} path="profile/:userId" />
-                <Route element={<DialogsContainer />} path="dialogs/*" />
+                <Route element={<ProfileContainer profile={this.props.profile} />} path="profile/:userId" />
+                <Route element={<DialogsContainer profile={this.props.profile} />} path="dialogs/*" />
                 <Route path="news" />
                 <Route element={<Music />} path="music" />
                 <Route element={<Settings />} path="settings" />
@@ -56,11 +53,12 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
+  profile: getProfile(state),
 });
 
-let AppContainer = compose(withRouter, connect(mapStateToProps, { initializeApp }))(App);
+let AppContainer = compose(connect(mapStateToProps, { initializeApp }))(App);
 
-const SocialNetworkApp = (props) => {
+const SocialNetworkApp = () => {
   return (
     <Router>
       <Provider store={store}>

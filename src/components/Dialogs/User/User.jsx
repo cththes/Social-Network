@@ -3,6 +3,9 @@ import styles from "./User.module.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Input } from "../../Common/FormControls/FormControls";
+import { Link } from "react-router-dom";
+import userPhoto from "../../../assets/images/user.jpg";
+import Preloader from "../../Common/Preloader/Preloader";
 
 const AddMessageForm = ({ sendMessage }) => {
   const formik = useFormik({
@@ -14,6 +17,7 @@ const AddMessageForm = ({ sendMessage }) => {
     }),
     onSubmit: (values) => {
       sendMessage(values.message);
+      values.message = "";
     },
   });
   return (
@@ -32,7 +36,9 @@ const AddMessageForm = ({ sendMessage }) => {
 const User = (props) => {
   return (
     <div className={styles.item}>
-      <img className={styles.avatar} src="https://avatars.githubusercontent.com/u/94492515?v=4" alt="" />
+      <Link to="/profile">
+        <img src={props.profile.photos.large || userPhoto} alt="" className={styles.avatar} />
+      </Link>
       <AddMessageForm {...props} />
     </div>
   );

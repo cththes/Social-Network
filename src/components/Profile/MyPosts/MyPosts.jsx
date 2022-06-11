@@ -15,6 +15,7 @@ const AddNewPostForm = ({ error, addPost }) => {
     }),
     onSubmit: (values) => {
       addPost(values.post);
+      values.post = "";
     },
   });
   return (

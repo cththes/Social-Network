@@ -2,17 +2,10 @@ import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
 import { getUserProfile, requestStatus, updateStatus, savePhoto, saveProfile } from "../../redux/profile-reducer";
-import { useParams, useNavigate } from "react-router-dom";
 import { withAuthNavigate } from "../../hoc/withAuthNavigate";
 import { compose } from "redux";
-import { getAuthorizedUserId, getIsAuth, getProfile, getStatus } from "../../redux/profile-selector";
-
-export function withRouter(Component) {
-  function ComponentWithRouter(props) {
-    return <Component {...props} params={useParams()} navigate={useNavigate()} />;
-  }
-  return ComponentWithRouter;
-}
+import { getAuthorizedUserId, getIsAuth, getStatus } from "../../redux/profile-selector";
+import { withRouter } from "../../hoc/withRouter";
 
 class ProfileContainer extends React.Component {
   refreshProfile() {
@@ -54,21 +47,30 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    profile: getProfile(state),
     status: getStatus(state),
     authorizedUserId: getAuthorizedUserId(state),
     isAuth: getIsAuth(state),
   };
 };
 
-export default compose(
-  connect(mapStateToProps, {
-    getUserProfile,
-    requestStatus,
-    updateStatus,
-    savePhoto,
-    saveProfile,
-  }),
-  withRouter,
-  withAuthNavigate
-)(ProfileContainer);
+let mapDispatchToProps = (dispatch) => {
+  return {
+    getUserProfile: (userId) => {
+      dispatch(getUserProfile(userId));
+    },
+    requestStatus: (userId) => {
+      dispatch(requestStatus(userId));
+    },
+    updateStatus: (status) => {
+      dispatch(updateStatus(status));
+    },
+    savePhoto: (file) => {
+      dispatch(savePhoto(file));
+    },
+    saveProfile: (profile) => {
+      dispatch(saveProfile(profile));
+    },
+  };
+};
+
+export default compose(connect(mapStateToProps, mapDispatchToProps), withRouter, withAuthNavigate)(ProfileContainer);

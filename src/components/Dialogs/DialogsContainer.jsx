@@ -2,7 +2,14 @@ import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { withAuthNavigate } from "./../../hoc/withAuthNavigate";
-import { getUserProfile } from "../../redux/profile-reducer";
+
+let DialogsContainer = (props) => {
+  return (
+    <div>
+      <Dialogs profile={props.profile} state={props.state} />
+    </div>
+  );
+};
 
 let mapStateToProps = (state) => {
   return {
@@ -10,4 +17,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default compose(connect(mapStateToProps), withAuthNavigate)(Dialogs);
+export default compose(connect(mapStateToProps), withAuthNavigate)(DialogsContainer);
