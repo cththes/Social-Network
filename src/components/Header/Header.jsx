@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 
 const Header = (props) => {
   return (
@@ -9,7 +9,7 @@ const Header = (props) => {
         <div className={styles.loginBlock}>
           {props.isAuth ? (
             <div>
-              {props.login}
+              <span className={styles.userloginName}>{props.login}</span>
               <button onClick={props.logout} className={styles.logoutBtn}>
                 Log Out
               </button>

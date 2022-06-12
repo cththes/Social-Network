@@ -6,6 +6,7 @@ import authReducer from "./auth-reducer";
 import thunkMiddleware from "redux-thunk";
 import appReducer from "./app-reducer";
 import playerReducer from "./player-reducer";
+import settingsReducer from "./settings-reducer";
 
 let reducers = combineReducers({
   profilePage: profileReducer,
@@ -14,6 +15,7 @@ let reducers = combineReducers({
   auth: authReducer,
   app: appReducer,
   player: playerReducer,
+  settings: settingsReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

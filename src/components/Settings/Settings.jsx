@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { switchThemeActionCreator } from "../../redux/settings-reducer";
 
 const Settings = () => {
-  let [isDark, setTheme] = useState(false);
+  let isDark = useSelector((state) => state.settings.isDark);
+  const dispatch = useDispatch();
   let darkThemeSwitch = () => {
-    setTheme(!isDark);
+    dispatch(switchThemeActionCreator());
   };
   return (
     <div>

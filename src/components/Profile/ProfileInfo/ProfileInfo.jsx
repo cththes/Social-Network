@@ -37,7 +37,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
       <div>
         {isOwner && <input type={"file"} onChange={onMainPhotoSelected} className={styles.inputUploadAvatar} />}
       </div>
-      <div className={styles.contacts}>
+      <h2 className={styles.contacts}>
         {editMode ? (
           <ProfileDataForm saveProfileSubmit={saveProfileSubmit} contacts={profile.contacts} />
         ) : (
@@ -49,7 +49,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
             isOwner={isOwner}
           />
         )}
-      </div>
+      </h2>
     </div>
   );
 };

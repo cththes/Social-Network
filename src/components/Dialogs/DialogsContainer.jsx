@@ -6,7 +6,7 @@ import { withAuthNavigate } from "./../../hoc/withAuthNavigate";
 let DialogsContainer = (props) => {
   return (
     <div>
-      <Dialogs profile={props.profile} state={props.state} />
+      <Dialogs profile={props.profile} state={props.state} isDark={props.isDark} />
     </div>
   );
 };
@@ -14,6 +14,7 @@ let DialogsContainer = (props) => {
 let mapStateToProps = (state) => {
   return {
     state: state.dialogsPage,
+    isDark: state.settings.isDark,
   };
 };
 

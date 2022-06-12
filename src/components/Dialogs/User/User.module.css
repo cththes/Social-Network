@@ -22,10 +22,6 @@
   margin-left: 40px;
 }
 
-.form_message button:active {
-  background-color: white;
-}
-
 .formSummaryError {
   color: red;
   width: 250px;

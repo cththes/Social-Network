@@ -1,6 +1,8 @@
+@import "../../variables.module.scss";
+
 header {
-  background-color: #001529;
-  color: white;
+  background-color: $headerColor;
+  color: $lightNormalTextColor;
   height: 60px;
 }
 
@@ -43,7 +45,6 @@ header {
   text-decoration: none;
   color: #359eff;
 }
-
-.logoutBtn {
-  margin-left: 10px;
+.userloginName {
+  margin-right: 10px;
 }

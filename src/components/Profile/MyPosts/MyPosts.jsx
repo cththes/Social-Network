@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./MyPosts.module.css";
+import styles from "./MyPosts.module.scss";
 import Post from "./Post/Post";
 import { useFormik } from "formik";
 import * as Yup from "yup";

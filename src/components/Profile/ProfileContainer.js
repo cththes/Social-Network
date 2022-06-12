@@ -18,6 +18,7 @@ class ProfileContainer extends React.Component {
     }
     this.props.getUserProfile(userId);
     this.props.requestStatus(userId);
+    console.log(getUserProfile(userId));
   }
   componentDidMount() {
     this.refreshProfile();
@@ -53,24 +54,8 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    getUserProfile: (userId) => {
-      dispatch(getUserProfile(userId));
-    },
-    requestStatus: (userId) => {
-      dispatch(requestStatus(userId));
-    },
-    updateStatus: (status) => {
-      dispatch(updateStatus(status));
-    },
-    savePhoto: (file) => {
-      dispatch(savePhoto(file));
-    },
-    saveProfile: (profile) => {
-      dispatch(saveProfile(profile));
-    },
-  };
-};
-
-export default compose(connect(mapStateToProps, mapDispatchToProps), withRouter, withAuthNavigate)(ProfileContainer);
+export default compose(
+  connect(mapStateToProps, { getUserProfile, requestStatus, updateStatus, savePhoto, saveProfile }),
+  withRouter,
+  withAuthNavigate
+)(ProfileContainer);

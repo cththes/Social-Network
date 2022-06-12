@@ -9,7 +9,7 @@ import { initializeApp } from "./redux/app-reducer";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 
-import "./App.css";
+import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./components/Login/Login";
 import Music from "./components/Music/Music";
@@ -26,8 +26,9 @@ class App extends Component {
   }
 
   render() {
+    let isDark = this.props.isDark;
     return (
-      <div className="app">
+      <div className={isDark ? "app_dark" : "app_light"}>
         <HeaderContainer />
         <div className="app-wrapper">
           <Navbar />
@@ -54,6 +55,7 @@ class App extends Component {
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
   profile: getProfile(state),
+  isDark: state.settings.isDark,
 });
 
 let AppContainer = compose(connect(mapStateToProps, { initializeApp }))(App);

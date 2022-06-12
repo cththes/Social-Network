@@ -1,0 +1,53 @@
+@import "../../variables.module.scss";
+
+.dialogs {
+  //color: #777777;
+  display: grid;
+  grid-template-areas: "dialogs usermessage";
+  grid-template-columns: 1fr 5fr;
+  /*width: 100%;*/
+  margin: 0 auto;
+  grid-gap: 10px;
+}
+
+.dialogsItems_dark {
+  background-color: $darkBackgroundInputColor;
+  height: min-content;
+  font-size: 19px;
+  min-width: 170px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  & a {
+    color: black;
+  }
+}
+.dialogsItems_light {
+  height: min-content;
+  font-size: 19px;
+  min-width: 170px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: white;
+  & a {
+    color: black;
+  }
+}
+
+.dialog {
+  padding-left: 3px;
+  grid-area: usermessage;
+}
+
+@media (max-width: 767px) {
+  .dialogs {
+    display: block;
+  }
+  .dialogsItems_light {
+    width: 170px;
+  }
+  .dialogsItems_dark {
+    width: 170px;
+  }
+}
