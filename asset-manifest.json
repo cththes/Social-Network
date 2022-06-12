@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/Social-Network/static/css/main.4a37d597.chunk.css",
-    "main.js": "/Social-Network/static/js/main.7603074e.chunk.js",
-    "main.js.map": "/Social-Network/static/js/main.7603074e.chunk.js.map",
+    "main.css": "/Social-Network/static/css/main.39cf1bd2.chunk.css",
+    "main.js": "/Social-Network/static/js/main.0a1ec33c.chunk.js",
+    "main.js.map": "/Social-Network/static/js/main.0a1ec33c.chunk.js.map",
     "runtime-main.js": "/Social-Network/static/js/runtime-main.98a1f930.js",
     "runtime-main.js.map": "/Social-Network/static/js/runtime-main.98a1f930.js.map",
-    "static/js/2.4350c24c.chunk.js": "/Social-Network/static/js/2.4350c24c.chunk.js",
-    "static/js/2.4350c24c.chunk.js.map": "/Social-Network/static/js/2.4350c24c.chunk.js.map",
+    "static/js/2.37a8a990.chunk.js": "/Social-Network/static/js/2.37a8a990.chunk.js",
+    "static/js/2.37a8a990.chunk.js.map": "/Social-Network/static/js/2.37a8a990.chunk.js.map",
     "static/css/3.d2a7c2f8.chunk.css": "/Social-Network/static/css/3.d2a7c2f8.chunk.css",
     "static/js/3.6765537e.chunk.js": "/Social-Network/static/js/3.6765537e.chunk.js",
     "static/js/3.6765537e.chunk.js.map": "/Social-Network/static/js/3.6765537e.chunk.js.map",
@@ -18,8 +18,8 @@
     "index.html": "/Social-Network/index.html",
     "static/css/3.d2a7c2f8.chunk.css.map": "/Social-Network/static/css/3.d2a7c2f8.chunk.css.map",
     "static/css/4.bb9c5177.chunk.css.map": "/Social-Network/static/css/4.bb9c5177.chunk.css.map",
-    "static/css/main.4a37d597.chunk.css.map": "/Social-Network/static/css/main.4a37d597.chunk.css.map",
-    "static/js/2.4350c24c.chunk.js.LICENSE.txt": "/Social-Network/static/js/2.4350c24c.chunk.js.LICENSE.txt",
+    "static/css/main.39cf1bd2.chunk.css.map": "/Social-Network/static/css/main.39cf1bd2.chunk.css.map",
+    "static/js/2.37a8a990.chunk.js.LICENSE.txt": "/Social-Network/static/js/2.37a8a990.chunk.js.LICENSE.txt",
     "static/media/AL-90 - Black Sapphire.f56005f7.mp3": "/Social-Network/static/media/AL-90 - Black Sapphire.f56005f7.mp3",
     "static/media/Andy Stott - Never the right time.28133de8.mp3": "/Social-Network/static/media/Andy Stott - Never the right time.28133de8.mp3",
     "static/media/Autechre - Further.f81fb838.mp3": "/Social-Network/static/media/Autechre - Further.f81fb838.mp3",
@@ -58,8 +58,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.98a1f930.js",
-    "static/js/2.4350c24c.chunk.js",
-    "static/css/main.4a37d597.chunk.css",
-    "static/js/main.7603074e.chunk.js"
+    "static/js/2.37a8a990.chunk.js",
+    "static/css/main.39cf1bd2.chunk.css",
+    "static/js/main.0a1ec33c.chunk.js"
   ]
 }
