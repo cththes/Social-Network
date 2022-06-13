@@ -38,6 +38,9 @@ body {
   & a:active {
     color: $darkActiveLinkColor;
   }
+  & a:focus {
+    color: $darkActiveLinkColor;
+  }
 }
 
 button:active {

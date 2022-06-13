@@ -48,3 +48,22 @@ header {
 .userloginName {
   margin-right: 10px;
 }
+
+.navLogin {
+  color: white;
+}
+
+.musicPlayerBlock {
+  position: relative;
+  display: inline-block;
+  margin-left: 215px;
+  font-family: "Comic Sans MS";
+  font-size: 14px;
+}
+
+@media (max-width: 767px) {
+  .musicPlayerBlock {
+    margin: 0;
+    display: inline-block;
+  }
+}

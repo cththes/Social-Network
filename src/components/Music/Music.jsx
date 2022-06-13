@@ -1,56 +1,29 @@
-import React, { useState } from "react";
-import ReactPlayer from "react-player";
-import { playMusic } from "../../redux/player-reducer";
-import track1 from "./../../assets/music/Mark Morgan - Khans Of The New California.mp3";
-import track2 from "./../../assets/music/Lorn - PERFEKT DARK.mp3";
-import track3 from "./../../assets/music/BLVCK CEILING - End of Time.mp3";
-import track4 from "./../../assets/music/Burial - Pirates.mp3";
-import track5 from "./../../assets/music/Natalie Merchant - San Andreas Fault.mp3";
-import { connect } from "react-redux";
+import styles from "./Music.module.scss";
+import { playMusicActionCreator } from "../../redux/player-reducer";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
-const Music = (props) => {
-  let [isPlaying, setPlaying] = useState(false);
-  let [currentTrack, setCurrentTrack] = useState(0);
-  let onPlayerClick = (url) => {
-    playMusic(url);
-    setPlaying(true);
-    setCurrentTrack(props.url);
+const Music = () => {
+  const dispatch = useDispatch();
+  let onPlayerClick = (currentTrack) => {
+    dispatch(playMusicActionCreator(currentTrack));
   };
-  return (
-    <div>
+
+  let musicElements = useSelector((state) =>
+    state.player.music.map((track) => (
       <div>
-        <span onClick={onPlayerClick}>Mark Morgan - Khans Of The New California</span>
-      </div>
-      <div>
-        <span onClick={onPlayerClick}>Lorn - PERFEKT DARK</span>
-      </div>
-      <div>
-        <span onClick={onPlayerClick}>BLVCK CEILING - End of Time</span>
-      </div>
-      <div>
-        <span onClick={onPlayerClick}>Burial - Pirates</span>
-      </div>
-      <div>
-        <span onClick={onPlayerClick}>Natalie Merchant - San Andreas Fault </span>
-      </div>
-      {isPlaying ? (
-        <ReactPlayer
-          url={currentTrack}
-          controls={true}
-          height="40px"
-          width="30%"
-          playing={true}
-          config={{
-            file: {
-              tracks: [track1, track2, track3, track4, track5],
-            },
+        <NavLink
+          to="/music"
+          onClick={() => {
+            onPlayerClick(track);
           }}
-        />
-      ) : (
-        <div></div>
-      )}
-    </div>
+        >
+          {track.title}
+        </NavLink>
+      </div>
+    ))
   );
+  return <div className={styles.player}>{musicElements}</div>;
 };
 
 let mapStateToProps = (state) => {

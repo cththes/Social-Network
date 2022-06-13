@@ -1,0 +1,12 @@
+@import "../../variables.module.scss";
+
+.player a {
+  color: $darkNormalTextColor;
+  text-decoration: none;
+}
+.player a:hover {
+  color: red;
+}
+.player a:focus {
+  color: red;
+}
