@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Social-Network/static/css/main.54e72fbf.chunk.css",
+    "main.css": "/Social-Network/static/css/main.6afde597.chunk.css",
     "main.js": "/Social-Network/static/js/main.e8a3f19a.chunk.js",
     "main.js.map": "/Social-Network/static/js/main.e8a3f19a.chunk.js.map",
     "runtime-main.js": "/Social-Network/static/js/runtime-main.f88bee31.js",
@@ -18,7 +18,7 @@
     "index.html": "/Social-Network/index.html",
     "static/css/3.513ab983.chunk.css.map": "/Social-Network/static/css/3.513ab983.chunk.css.map",
     "static/css/4.9289f659.chunk.css.map": "/Social-Network/static/css/4.9289f659.chunk.css.map",
-    "static/css/main.54e72fbf.chunk.css.map": "/Social-Network/static/css/main.54e72fbf.chunk.css.map",
+    "static/css/main.6afde597.chunk.css.map": "/Social-Network/static/css/main.6afde597.chunk.css.map",
     "static/js/2.bb3857c1.chunk.js.LICENSE.txt": "/Social-Network/static/js/2.bb3857c1.chunk.js.LICENSE.txt",
     "static/media/Instagram_icon.be3763eb.png": "/Social-Network/static/media/Instagram_icon.be3763eb.png",
     "static/media/preloader.5788b05c.svg": "/Social-Network/static/media/preloader.5788b05c.svg",
@@ -27,7 +27,7 @@
   "entrypoints": [
     "static/js/runtime-main.f88bee31.js",
     "static/js/2.bb3857c1.chunk.js",
-    "static/css/main.54e72fbf.chunk.css",
+    "static/css/main.6afde597.chunk.css",
     "static/js/main.e8a3f19a.chunk.js"
   ]
 }
