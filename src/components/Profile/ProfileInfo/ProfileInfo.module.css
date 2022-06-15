@@ -29,13 +29,13 @@ h1 {
     display: block;
   }
   .contacts {
-    padding-bottom: 45px;
+    padding-bottom: 25px;
   }
 }
 
 .contacts {
   grid-area: contacts;
-  padding-top: 45px;
+  padding-top: 25px;
   font-size: 25px;
 }
 

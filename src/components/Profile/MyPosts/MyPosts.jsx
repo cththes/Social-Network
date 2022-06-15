@@ -44,6 +44,8 @@ const MyPosts = React.memo((props) => {
       <AddNewPostForm {...props} />
       <div></div>
       <div>{postsElements}</div>
+      {/*<div>{props.profile.userId && postsElements[0]}</div>
+      <div>{postsElements.slice(1)}</div>*/}
     </div>
   );
 });

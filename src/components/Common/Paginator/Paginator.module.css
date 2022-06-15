@@ -24,7 +24,7 @@
   color: #777777;
   text-decoration: none;
 }
-.activeLink {
+.Link:active {
   color: white;
   text-decoration: none;
 }

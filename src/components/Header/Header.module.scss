@@ -26,15 +26,9 @@ header {
   }
 }
 
-.logout {
-  grid-area: r;
-}
-
 .loginBlock {
   float: right;
-  margin-right: 10px;
-  font-size: 25px;
-  margin-top: 12px;
+  font-size: 18px;
 }
 
 .loginBlock a {
@@ -46,7 +40,7 @@ header {
   color: #359eff;
 }
 .userloginName {
-  margin-right: 10px;
+  margin: 0;
 }
 
 .navLogin {
@@ -56,14 +50,46 @@ header {
 .musicPlayerBlock {
   position: relative;
   display: inline-block;
-  margin-left: 215px;
+  margin-left: 207px;
   font-family: "Comic Sans MS";
   font-size: 14px;
+  width: 463px;
+  margin-top: 4px;
+}
+
+.smallTitleSize {
+  font-size: 13px;
 }
 
 @media (max-width: 767px) {
   .musicPlayerBlock {
     margin: 0;
     display: inline-block;
+    width: 356px;
+    margin-top: 6px;
+  }
+  .bigTitleSize {
+    font-size: 13px;
+  }
+  .smallTitleSize {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .musicPlayerBlock {
+    width: 65%;
+    margin: 0;
+  }
+  .bigTitleSize {
+    font-size: 10.5px;
+  }
+}
+@media (max-width: 280px) {
+  .bigTitleSize {
+    font-size: 11px;
+  }
+  .smallTitleSize {
+    font-size: 7.5px;
   }
 }

@@ -2,10 +2,19 @@ import React, { useState } from "react";
 import styles from "./Paginator.module.css";
 import { NavLink } from "react-router-dom";
 
-let Paginator = ({ totalUsersCount, pageSize, currentPage, onPageChanged, portionSize = 10 }) => {
+type PropsType = {
+  totalUsersCount: number
+  pageSize: number
+  currentPage: number
+  onPageChanged: (pageNumber: number) => void
+  portionSize?: number
+}
+
+
+let Paginator: React.FC<PropsType> = ({ totalUsersCount, pageSize, currentPage, onPageChanged, portionSize = 10 }) => {
   let pagesCount = Math.ceil(totalUsersCount / pageSize);
 
-  let pages = [];
+  let pages: Array<number> = [];
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
@@ -15,7 +24,6 @@ let Paginator = ({ totalUsersCount, pageSize, currentPage, onPageChanged, portio
   let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
   let rightPortionPageNumber = portionNumber * portionSize;
 
-  const setActive = ({ isActive }) => (isActive ? styles.activeLink : styles.Link);
   return (
     <div className={styles.paginator}>
       {portionNumber > 1 && (
@@ -31,9 +39,9 @@ let Paginator = ({ totalUsersCount, pageSize, currentPage, onPageChanged, portio
         .filter((p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
         .map((page) => {
           return (
-            <NavLink to={"/users/" + page} className={setActive}>
+            <NavLink to={"/users/" + page} className={styles.Link}>
               <span
-                className={currentPage === page && styles.selectedPage}
+                /* className={currentPage === page && styles.selectedPage}*/
                 onClick={() => {
                   onPageChanged(page);
                 }}

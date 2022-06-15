@@ -18,7 +18,6 @@ class ProfileContainer extends React.Component {
     }
     this.props.getUserProfile(userId);
     this.props.requestStatus(userId);
-    console.log(getUserProfile(userId));
   }
   componentDidMount() {
     this.refreshProfile();

@@ -2,7 +2,7 @@
   grid-area: "message";
   display: grid;
   width: 100%;
-  margin: 0 auto;
+  margin-top: 10px;
   grid-template-areas: "a";
   grid-template-columns: 65px 1fr;
 }

@@ -73,8 +73,7 @@ export const login = (email: string, password: string, rememberMe: boolean, capt
     if (response.data.resultCode === 10) {
       dispatch(getCaptchaUrl());
     }
-    let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error";
-    console.log(message);
+    let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error";;
   }
 };
 export const logout = () => {

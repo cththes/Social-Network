@@ -1,11 +1,27 @@
 .item {
+  margin: 5px;
   background-color: #cf5b28;
   color: #311a14;
   border-radius: 4px;
-  margin-top: 5px;
   padding: 5px;
   height: min-content;
-  display: grid;
   min-width: 50px;
   width: min-content;
+  white-space: pre-line;
+  word-wrap: break-word;
+  max-width: 42vw;
+}
+
+@media (max-width: 767px) {
+  .item {
+    max-width: 65vw;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 450px) {
+  .item {
+    max-width: 57vw;
+    font-size: 14.5px;
+  }
 }

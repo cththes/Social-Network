@@ -5,7 +5,6 @@ import * as Yup from "yup";
 import { Input } from "../../Common/FormControls/FormControls";
 import { Link } from "react-router-dom";
 import userPhoto from "../../../assets/images/user.jpg";
-import Preloader from "../../Common/Preloader/Preloader";
 
 const AddMessageForm = ({ sendMessage }) => {
   const formik = useFormik({

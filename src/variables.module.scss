@@ -3,16 +3,24 @@ $headerColor: #001529;
 $lightNormalTextColor: white;
 $lightActiveTextColor: #359eff;
 
-$lightBackgroundColor: #1c1b19;
-$lightBackgroundTextColor: #f0f2f5;
-$lightBackgroundButtonColor: #f0f2f5;
-$lightBackgroundButtonColor: #1890ff;
+$lightBackgroundColor: #f0f2f5;
+$lightBackgroundTextColor: #1c1b19;
+$lightBackgroundHoverButtonColor: #1890ff;
+$lightBackgroundActiveButtonColor: #359eff;
+$lightBackgroundButtonColor: #5e5e5e;
 
 $darkNormalTextColor: #5e5e5e;
 $darkActiveTextColor: black;
 $darkActiveLinkColor: #f44647;
+$darkPlayerHoverFocusLinkColor: red;
+
+$lightNormalTextColor: #5e5e5e;
+$lightActiveLinkColor: #1890ff;
+$lightActiveTextColor: #1890ff;
+$lightPlayerHoverFocusLinkColor: #1890ff;
 
 $darkBackgroundColor: #1c1b19;
 $darkBackgroundInputColor: #5e5e5e;
 $darkBackgroundButtonColor: #5e5e5e;
-$darkBackgroundActiveButtonColor: #f44647;
+$darkBackgroundHoverButtonColor: #f44647;
+$darkBackgroundActiveButtonColor: red;

@@ -8,14 +8,24 @@ const Header = (props) => {
   let isPlaying = useSelector((state) => state.player.isPlaying);
   let currentTrack = useSelector((state) => state.player.url);
   let currentTitle = useSelector((state) => state.player.title);
+  let isBigTitleSize = true;
+  currentTitle.length > 50 && (isBigTitleSize = false);
   return (
     <header>
       <div className={styles.headerMiddle}>
         <div className={styles.musicPlayerBlock}>
           {isPlaying ? (
             <div>
-              <div>{currentTitle}</div>
-              <ReactPlayer url={currentTrack} controls={true} height="40px" width="370px" playing={true} />
+              <div className={isBigTitleSize ? styles.bigTitleSize : styles.smallTitleSize}>{currentTitle}</div>
+              <ReactPlayer
+                url={currentTrack}
+                controls={true}
+                height="30px"
+                width="vmax"
+                playing={true}
+                changePlaybackRate={false}
+                config={{ file: { attributes: { controlsList: "noplaybackrate nodownload nofullscreen" } } }}
+              />
             </div>
           ) : (
             <div></div>
@@ -25,9 +35,11 @@ const Header = (props) => {
           {props.isAuth ? (
             <div>
               <span className={styles.userloginName}>{props.login}</span>
-              <button onClick={props.logout} className={styles.logoutBtn}>
-                Log Out
-              </button>
+              <div>
+                <button onClick={props.logout} className={styles.logoutBtn}>
+                  Log Out
+                </button>
+              </div>
             </div>
           ) : (
             <NavLink to={"/login"} className={styles.navLogin}>

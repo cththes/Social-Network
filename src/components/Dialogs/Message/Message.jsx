@@ -2,7 +2,11 @@ import React from "react";
 import styles from "./Message.module.css";
 
 const Message = (props) => {
-  return <div className={styles.item}>{props.message}</div>;
+  return (
+    <div>
+      <div className={styles.item}>{props.message}</div>
+    </div>
+  );
 };
 
 export default Message;

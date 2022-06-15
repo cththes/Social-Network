@@ -28,23 +28,25 @@ class App extends Component {
   render() {
     let isDark = this.props.isDark;
     return (
-      <div className={isDark ? "app_dark" : "app_light"}>
-        <HeaderContainer />
-        <div className="app-wrapper">
-          <Navbar />
-          <div className="app-wrapper-content">
-            <Suspense fallback={<Preloader />}>
-              <Routes>
-                <Route element={<ProfileContainer profile={this.props.profile} />} path="profile" />
-                <Route element={<Login />} path="login" />
-                <Route element={<ProfileContainer profile={this.props.profile} />} path="profile/:userId" />
-                <Route element={<DialogsContainer profile={this.props.profile} />} path="dialogs/*" />
-                <Route path="news" />
-                <Route element={<Music />} path="music" />
-                <Route element={<Settings />} path="settings" />
-                <Route element={<UsersContainer />} path="users/*" />
-              </Routes>
-            </Suspense>
+      <div className="app">
+        <div className={isDark ? "app_dark" : "app_light"}>
+          <HeaderContainer />
+          <div className="app-wrapper">
+            <Navbar />
+            <div className="app-wrapper-content">
+              <Suspense fallback={<Preloader />}>
+                <Routes>
+                  <Route element={<ProfileContainer profile={this.props.profile} />} path="profile" />
+                  <Route element={<Login />} path="login" />
+                  <Route element={<ProfileContainer profile={this.props.profile} />} path="profile/:userId" />
+                  <Route element={<DialogsContainer profile={this.props.profile} />} path="dialogs/*" />
+                  <Route path="news" />
+                  <Route element={<Music />} path="music" />
+                  <Route element={<Settings />} path="settings" />
+                  <Route element={<UsersContainer />} path="users/*" />
+                </Routes>
+              </Suspense>
+            </div>
           </div>
         </div>
       </div>

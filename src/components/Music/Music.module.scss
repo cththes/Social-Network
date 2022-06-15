@@ -1,12 +1,24 @@
 @import "../../variables.module.scss";
 
-.player a {
-  color: $darkNormalTextColor;
-  text-decoration: none;
+.playerDark {
+  & a {
+    text-decoration: none;
+  }
+  & a:hover {
+    color: $darkPlayerHoverFocusLinkColor;
+  }
+  & a:focus {
+    color: $darkPlayerHoverFocusLinkColor;
+  }
 }
-.player a:hover {
-  color: red;
-}
-.player a:focus {
-  color: red;
+.playerLight {
+  & a {
+    text-decoration: none;
+  }
+  & a:hover {
+    color: $lightPlayerHoverFocusLinkColor;
+  }
+  & a:focus {
+    color: $lightPlayerHoverFocusLinkColor;
+  }
 }

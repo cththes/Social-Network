@@ -8,7 +8,7 @@ const Music = () => {
   let onPlayerClick = (currentTrack) => {
     dispatch(playMusicActionCreator(currentTrack));
   };
-
+  let isDark = useSelector((state) => state.settings.isDark);
   let musicElements = useSelector((state) =>
     state.player.music.map((track) => (
       <div>
@@ -23,7 +23,7 @@ const Music = () => {
       </div>
     ))
   );
-  return <div className={styles.player}>{musicElements}</div>;
+  return <div className={isDark ? styles.playerDark : styles.playerLight}>{musicElements}</div>;
 };
 
 let mapStateToProps = (state) => {

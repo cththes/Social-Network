@@ -1,9 +1,13 @@
+import { MusicType } from "../types/types";
+
 const PLAY_MUSIC = "player/PLAY_MUSIC";
+
+export type InitialStateType = typeof initialState
 
 let initialState = {
   isPlaying: false,
-  url: 0,
-  title: 0,
+  url: "",
+  title: "",
   music: [
     {
       title: "AL-90 - Black Sapphire",
@@ -26,8 +30,8 @@ let initialState = {
       url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Blue%20October%20-%20All%20That%20We%20Are.mp3",
     },
     {
-      title: "Bluestaeb - Just A Staeb Ahead (Feat. Anthony Drawn)",
-      url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Bluestaeb%20-%20Just%20A%20Staeb%20Ahead%20(Feat.%20Anthony%20Drawn).mp3",
+      title: "Bluestaeb - Didn't Cha Know",
+      url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Bluestaeb%20-%20Didn't%20Cha%20Know.mp3",
     },
     {
       title: "BLVCK CEILING - End of Time",
@@ -42,6 +46,10 @@ let initialState = {
       url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Bowery%20Electric%20-%20Coming%20Down.mp3",
     },
     {
+      title: "Burial - Burial - Distant Lights",
+      url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Burial%20-%20Distant%20Lights.mp3",
+    },
+    {
       title: "Burial - Pirates",
       url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Burial%20-%20Pirates.mp3",
     },
@@ -50,12 +58,11 @@ let initialState = {
       url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Cremation%20Lily%20-%20Lovers%20Against%20the%20Rocks.mp3",
     },
     {
-      title: "CU - 2020",
-      url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/CU%20-%202020.mp3",
-    },
-    {
       title: "Doja Cat - 4 mordant",
       url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Doja%20Cat%20-%204%20Morant.mp3",
+    }, {
+      title: "Frank Knight - Awakened",
+      url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Frank%20Knight%20-%20Awakened.mp3",
     },
     {
       title: "Fraunhofer Diffraction - Bloodlust",
@@ -64,6 +71,10 @@ let initialState = {
     {
       title: "Fuel - Halos Of The Sun",
       url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Fuel%20-%20Halos%20of%20the%20Sun.mp3",
+    },
+    {
+      title: "Gopinatha - Primeval Lord",
+      url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Gopinatha%20-%20Primeval%20Lord.mp3",
     },
     {
       title: "Grimes - Flesh without Blood",
@@ -91,7 +102,7 @@ let initialState = {
     },
     {
       title: "Natalie Merchant - San Andreas Fault",
-      url: "https://github.com/cththes/Social-Network-Database/blob/master/Music/Natalie%20Merchant%20-%20San%20Andreas%20Fault.mp3",
+      url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Natalie%20Merchant%20-%20San%20Andreas%20Fault.mp3",
     },
     {
       title: "P E A C E A N D T R A N Q U I L I T Y - A Hat In Time (Seal The Deal DLC)",
@@ -106,12 +117,16 @@ let initialState = {
       url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Pastel%20Ghost%20-%20Pulse.mp3",
     },
     {
-      title: "Psychonaut 4 - How Much for the Hope",
-      url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Psychonaut%204%20-%20How%20Much%20for%20the%20Hope.mp3",
+      title: "Placebo - Sleeping With Ghosts",
+      url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Placebo%20-%20Sleeping%20With%20Ghosts.mp3",
     },
     {
       title: "Radiohead - Hearing Damage",
       url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Radiohead%20-%20Hearing%20Damage.mp3",
+    },
+    {
+      title: "STARFORCE - Age of Nano",
+      url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/STARFORCE%20-%20Age%20of%20Nano.mp3",
     },
     {
       title: "Sendelica - It's the Neu! Kosmiche Disko",
@@ -120,6 +135,10 @@ let initialState = {
     {
       title: "Shlohmo - We Sat in the Car",
       url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Shlohmo%20-%20We%20Sat%20in%20the%20Car.mp3",
+    },
+    {
+      title: "Shlømo - Ivory",
+      url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/Shl%C3%B8mo%20-%20Ivory.mp3",
     },
     {
       title: "Whirr - Sway",
@@ -133,10 +152,10 @@ let initialState = {
       title: "Планета Плутон - Тишина",
       url: "https://raw.githubusercontent.com/cththes/Social-Network-Database/master/Music/%D0%9F%D0%BB%D0%B0%D0%BD%D0%B5%D1%82%D0%B0%20%D0%9F%D0%BB%D1%83%D1%82%D0%BE%D0%BD%20-%20%D0%A2%D0%B8%D1%88%D0%B8%D0%BD%D0%B0.mp3",
     },
-  ],
+  ] as Array<MusicType>,
 };
 
-const playerReducer = (state = initialState, action) => {
+const playerReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case PLAY_MUSIC:
       if (state.isPlaying && state.url !== action.url) state.isPlaying = false;
@@ -151,7 +170,7 @@ const playerReducer = (state = initialState, action) => {
   }
 };
 
-export const playMusicActionCreator = (currentTrack) => ({
+export const playMusicActionCreator = (currentTrack: MusicType) => ({
   type: PLAY_MUSIC,
   url: currentTrack.url,
   title: currentTrack.title,
